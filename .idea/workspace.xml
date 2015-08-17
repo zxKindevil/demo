@@ -1,7 +1,173 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d7259961-3097-408d-ba93-98f3ee2b52ca" name="Default" comment="" />
+    <list default="true" id="d7259961-3097-408d-ba93-98f3ee2b52ca" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/MANIFEST.MF" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/zhangxin/bean/Article.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/zhangxin/bean/TempBean.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/zhangxin/bean/User.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/zhangxin/controller/CtrlTemp.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/zhangxin/dao/TempBeanDao.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/zhangxin/dao/UserDao.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/zhangxin/exception/TempException.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/zhangxin/service/TempService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/zhangxin/service/UserService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/zhangxin/service/impl/TempServiceImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/logback.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/mybatis/jdbc.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/mybatis/mapper/TempBean.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/mybatis/mapper/User.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/mybatis/mybatis-config.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/mybatis/mybatis-spring.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/mybatis/sql/article.sql" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/mybatis/sql/tempbean.sql" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/mybatis/sql/user.sql" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/spring/applicationContext.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/spring/springMVC-servlet.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/demo/META-INF/MANIFEST.MF" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/demo/WEB-INF/classes/com/zhangxin/bean/Article.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/demo/WEB-INF/classes/com/zhangxin/bean/TempBean.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/demo/WEB-INF/classes/com/zhangxin/bean/User.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/demo/WEB-INF/classes/com/zhangxin/controller/CtrlTemp.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/demo/WEB-INF/classes/com/zhangxin/dao/TempBeanDao.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/demo/WEB-INF/classes/com/zhangxin/dao/UserDao.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/demo/WEB-INF/classes/com/zhangxin/exception/TempException.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/demo/WEB-INF/classes/com/zhangxin/service/TempService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/demo/WEB-INF/classes/com/zhangxin/service/UserService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/demo/WEB-INF/classes/com/zhangxin/service/impl/TempServiceImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/demo/WEB-INF/classes/logback.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/demo/WEB-INF/classes/mybatis/configuration.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/demo/WEB-INF/classes/mybatis/jdbc.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/demo/WEB-INF/classes/mybatis/mapper/TempBean.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/demo/WEB-INF/classes/mybatis/mapper/User.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/demo/WEB-INF/classes/mybatis/mybatis-config.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/demo/WEB-INF/classes/mybatis/mybatis-spring.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/demo/WEB-INF/classes/mybatis/sql/article.sql" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/demo/WEB-INF/classes/mybatis/sql/tempbean.sql" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/demo/WEB-INF/classes/mybatis/sql/user.sql" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/demo/WEB-INF/classes/spring/applicationContext.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/demo/WEB-INF/classes/spring/springMVC-servlet.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/demo/WEB-INF/lib/aopalliance-1.0.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/demo/WEB-INF/lib/classmate-1.0.0.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/demo/WEB-INF/lib/commons-lang-2.6.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/demo/WEB-INF/lib/commons-logging-1.1.1.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/demo/WEB-INF/lib/guava-18.0.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/demo/WEB-INF/lib/h2-1.3.174.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/demo/WEB-INF/lib/hibernate-validator-5.1.3.Final.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/demo/WEB-INF/lib/jackson-annotations-2.5.0.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/demo/WEB-INF/lib/jackson-core-2.5.2.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/demo/WEB-INF/lib/jackson-databind-2.5.2.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/demo/WEB-INF/lib/jboss-logging-3.1.3.GA.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/demo/WEB-INF/lib/jcl-over-slf4j-1.7.5.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/demo/WEB-INF/lib/joda-time-2.3.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/demo/WEB-INF/lib/jstl-1.2.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/demo/WEB-INF/lib/jul-to-slf4j-1.7.5.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/demo/WEB-INF/lib/log4j-over-slf4j-1.7.5.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/demo/WEB-INF/lib/logback-classic-1.1.2.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/demo/WEB-INF/lib/logback-core-1.1.2.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/demo/WEB-INF/lib/mybatis-3.2.8.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/demo/WEB-INF/lib/mybatis-spring-1.1.1.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/demo/WEB-INF/lib/mysql-connector-java-5.1.21.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/demo/WEB-INF/lib/slf4j-api-1.7.5.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/demo/WEB-INF/lib/spring-aop-4.0.0.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/demo/WEB-INF/lib/spring-beans-4.0.0.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/demo/WEB-INF/lib/spring-context-4.0.0.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/demo/WEB-INF/lib/spring-core-4.0.0.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/demo/WEB-INF/lib/spring-expression-4.0.0.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/demo/WEB-INF/lib/spring-jdbc-4.0.0.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/demo/WEB-INF/lib/spring-security-config-4.0.0.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/demo/WEB-INF/lib/spring-security-core-4.0.0.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/demo/WEB-INF/lib/spring-security-web-4.0.0.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/demo/WEB-INF/lib/spring-tx-3.1.1.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/demo/WEB-INF/lib/spring-web-4.0.0.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/demo/WEB-INF/lib/spring-webmvc-4.0.0.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/demo/WEB-INF/lib/tomcat-jdbc-8.0.15.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/demo/WEB-INF/lib/tomcat-juli-8.0.15.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/demo/WEB-INF/lib/validation-api-1.1.0.Final.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/demo/WEB-INF/pages/error.jsp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/demo/WEB-INF/pages/temp.jsp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/demo/WEB-INF/resources/css/temp.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/demo/WEB-INF/web.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/demo/index.jsp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/META-INF/MANIFEST.MF" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/classes/com/zhangxin/bean/Article.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/classes/com/zhangxin/bean/TempBean.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/classes/com/zhangxin/bean/User.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/classes/com/zhangxin/controller/CtrlTemp.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/classes/com/zhangxin/dao/TempBeanDao.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/classes/com/zhangxin/dao/UserDao.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/classes/com/zhangxin/exception/TempException.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/classes/com/zhangxin/mybatis/bean/Article.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/classes/com/zhangxin/mybatis/bean/TempBean.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/classes/com/zhangxin/mybatis/bean/User.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/classes/com/zhangxin/mybatis/dao/TempBeanDao.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/classes/com/zhangxin/mybatis/dao/UserDao.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/classes/com/zhangxin/mybatis/service/TempService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/classes/com/zhangxin/mybatis/service/UserService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/classes/com/zhangxin/mybatis/service/impl/TempServiceImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/classes/com/zhangxin/service/TempService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/classes/com/zhangxin/service/UserService.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/classes/com/zhangxin/service/impl/TempServiceImpl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/classes/com/zhangxin/spring/controller/CtrlTemp.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/classes/com/zhangxin/spring/exception/TempException.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/classes/logback.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/classes/mybatis/configuration.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/classes/mybatis/jdbc.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/classes/mybatis/mapper/TempBean.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/classes/mybatis/mapper/User.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/classes/mybatis/mybatis-config.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/classes/mybatis/mybatis-spring.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/classes/mybatis/sql/article.sql" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/classes/mybatis/sql/tempbean.sql" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/classes/mybatis/sql/user.sql" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/classes/spring/applicationContext.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/classes/spring/springMVC-servlet.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/lib/aopalliance-1.0.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/lib/classmate-1.0.0.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/lib/commons-lang-2.6.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/lib/commons-logging-1.1.1.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/lib/guava-18.0.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/lib/h2-1.3.174.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/lib/hibernate-validator-5.1.3.Final.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/lib/jackson-annotations-2.5.0.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/lib/jackson-core-2.5.2.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/lib/jackson-databind-2.5.2.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/lib/jboss-logging-3.1.3.GA.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/lib/jcl-over-slf4j-1.7.5.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/lib/joda-time-2.3.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/lib/jstl-1.2.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/lib/jul-to-slf4j-1.7.5.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/lib/log4j-over-slf4j-1.7.5.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/lib/logback-classic-1.1.2.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/lib/logback-core-1.1.2.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/lib/mybatis-3.2.8.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/lib/mybatis-spring-1.1.1.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/lib/mysql-connector-java-5.1.21.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/lib/slf4j-api-1.7.5.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/lib/spring-aop-4.0.0.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/lib/spring-beans-4.0.0.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/lib/spring-context-4.0.0.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/lib/spring-core-4.0.0.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/lib/spring-expression-4.0.0.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/lib/spring-jdbc-4.0.0.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/lib/spring-security-config-4.0.0.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/lib/spring-security-core-4.0.0.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/lib/spring-security-web-4.0.0.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/lib/spring-tx-3.1.1.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/lib/spring-web-4.0.0.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/lib/spring-webmvc-4.0.0.RELEASE.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/lib/tomcat-jdbc-8.0.15.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/lib/tomcat-juli-8.0.15.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/lib/validation-api-1.1.0.Final.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/pages/error.jsp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/pages/temp.jsp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/resources/css/temp.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/WEB-INF/web.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/localtaxation/index.jsp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/test-classes/com/zhangxin/test/MybatisSprintTest.class" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="localtaxation.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -89,8 +255,8 @@
       <file leaf-file-name="MybatisSprintTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/zhangxin/test/MybatisSprintTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.84090906" vertical-offset="507" max-vertical-offset="1596">
-              <caret line="42" column="29" selection-start-line="42" selection-start-column="29" selection-end-line="42" selection-end-column="29" />
+            <state vertical-scroll-proportion="0.47783253" vertical-offset="507" max-vertical-offset="1596">
+              <caret line="40" column="13" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -129,6 +295,9 @@
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -208,18 +377,6 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -258,32 +415,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="localtaxation" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="demo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="zhangxin" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -760,12 +891,12 @@
       <created>1439780031930</created>
       <option name="number" value="Default" />
       <updated>1439780031930</updated>
-      <workItem from="1439780035129" duration="980000" />
+      <workItem from="1439780035129" duration="1741000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="980000" />
+    <option name="totallyTimeSpent" value="1741000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="-4" width="1299" height="772" extended-state="6" />
@@ -795,7 +926,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32872504" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29641435" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32718894" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32718894" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -976,8 +1107,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/zhangxin/test/MybatisSprintTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.84090906" vertical-offset="507" max-vertical-offset="1596">
-          <caret line="42" column="29" selection-start-line="42" selection-start-column="29" selection-end-line="42" selection-end-column="29" />
+        <state vertical-scroll-proportion="0.47783253" vertical-offset="507" max-vertical-offset="1596">
+          <caret line="40" column="13" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
