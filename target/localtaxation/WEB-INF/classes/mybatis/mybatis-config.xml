@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <settings>
+        <!--允许在嵌套语句中使用行分界（RowBounds）default false-->
+        <setting name="safeRowBoundsEnabled" value="false"/>
+        <!--指定 MyBatis 是否以及如何自动映射指定的列到字段或属性。NONE 表示取消自动映射；PARTIAL 只会自动映射没有定义嵌套结果集映射的结果集。FULL 会自动映射任意复杂的结果集（包括嵌套和其他情况）。-->
+        <setting name="autoMappingBehavior" value="FULL"/>
+    </settings>
+
+    <!--自指定typeHandler-->
+    <!--<typeHandlers>-->
+        <!--<typeHandler handler="com.qunar.zhangxin.handler.OrderTypeHandler"-->
+                     <!--javaType="com.qunar.zhangxin.handler.Order"/>-->
+    <!--</typeHandlers>-->
+</configuration>
