@@ -1,0 +1,3 @@
+http\://www.qunar.com/schema/qta/actor=com.qunar.hotel.qta.order.actor.client.spring.ActorSpringNameSpaceHandler
+http\://www.foo.com/schema/component=com.qunar.hotel.qta.order.actor.client.xml.ComponentNamespaceHandler
+http\://www.foo.com/schema/jcache=com.qunar.hotel.qta.order.actor.client.xml.JCacheNamespaceHandler
