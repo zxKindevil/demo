@@ -1,4 +1,1 @@
-http\://www.qunar.com/schema/qta/actor/actor-2.0.0.xsd=META-INF/actor-1.0.0.xsd
-http\://www.qunar.com/schema/qta/actor/actor.xsd=META-INF/actor-1.0.0.xsd
 http\://www.foo.com/schema/component/component.xsd=META-INF/component-1.0.0.xsd
-http\://www.foo.com/schema/jcache/jcache.xsd=META-INF/jcache-1.0.0.xsd

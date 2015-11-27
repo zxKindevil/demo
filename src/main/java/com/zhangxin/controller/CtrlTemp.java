@@ -7,6 +7,9 @@ import com.zhangxin.exception.TempException;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+
+import manualcontroller.ManualController;
+import manualcontroller.xml.ComponentFactoryBean;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -18,12 +21,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class CtrlTemp {
 
     @Resource
+    ComponentFactoryBean componentFactoryBean;
+    @Resource
+    ManualController manualController;
+    @Resource
     TempService tempService;
 
 	@RequestMapping(value="/hello",method=RequestMethod.GET)
 	public String helloGet(Model model){
 		System.out.println("helloGet");
-		return "temp";
+        System.out.println(componentFactoryBean.getObject());
+        System.out.println(manualController);
+
+        return "temp";
 	}
 	
 	@RequestMapping(value="/hello",method=RequestMethod.POST)

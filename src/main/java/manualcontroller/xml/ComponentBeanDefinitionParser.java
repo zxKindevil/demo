@@ -1,5 +1,8 @@
 package manualcontroller.xml;
 
+import java.util.List;
+
+import manualcontroller.ManualController;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.support.AbstractBeanDefinition;
 import org.springframework.beans.factory.support.BeanDefinitionBuilder;
@@ -9,12 +12,16 @@ import org.springframework.beans.factory.xml.ParserContext;
 import org.springframework.util.xml.DomUtils;
 import org.w3c.dom.Element;
 
-import java.util.List;
-
 public class ComponentBeanDefinitionParser extends AbstractBeanDefinitionParser {
 
     protected AbstractBeanDefinition parseInternal(Element element, ParserContext parserContext) {
+        this.registerManualController(parserContext);
         return parseComponentElement(element);
+    }
+
+    private void registerManualController(ParserContext parserContext) {
+        BeanDefinitionBuilder factory = BeanDefinitionBuilder.rootBeanDefinition(ManualController.class);
+        parserContext.getRegistry().registerBeanDefinition("manualController",factory.getBeanDefinition());
     }
 
     private static AbstractBeanDefinition parseComponentElement(Element element) {

@@ -10,7 +10,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <org.springframework.version>4.0.0.RELEASE</org.springframework.version>
+        <org.springframework.version>4.2.0.RELEASE</org.springframework.version>
         <com.fasterxml.jackson.core.version>2.5.2</com.fasterxml.jackson.core.version>
         <org.slf4j.version>1.7.5</org.slf4j.version>
         <ch.qos.logback>1.1.2</ch.qos.logback>

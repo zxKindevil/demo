@@ -1,8 +1,8 @@
 package manualcontroller.xml;
 
-import org.springframework.beans.factory.FactoryBean;
-
 import java.util.List;
+
+import org.springframework.beans.factory.FactoryBean;
 
 public class ComponentFactoryBean implements FactoryBean<Component> {
 
@@ -17,7 +17,7 @@ public class ComponentFactoryBean implements FactoryBean<Component> {
         this.children = children;
     }
 
-    public Component getObject() throws Exception {
+    public Component getObject() {
         if (this.children != null && this.children.size() > 0) {
             for (Component child : children) {
                 this.parent.addComponent(child);

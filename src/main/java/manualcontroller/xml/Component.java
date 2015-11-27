@@ -1,5 +1,7 @@
 package manualcontroller.xml;
 
+import com.google.common.base.MoreObjects;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,5 +25,13 @@ public class Component {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return MoreObjects.toStringHelper(this)
+                .add("name",name)
+                .add("components",components)
+                .toString();
     }
 }
