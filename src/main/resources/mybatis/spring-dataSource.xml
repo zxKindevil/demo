@@ -3,10 +3,13 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+       xmlns:tx="http://www.springframework.org/schema/tx"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
        http://www.springframework.org/schema/jdbc
        http://www.springframework.org/schema/jdbc/spring-jdbc.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx.xsd
 ">
 
     <!--  数据源 db tomcatjdbc springjdbc-->
@@ -30,7 +33,7 @@
         <jdbc:script location="classpath:mybatis/sql/*.sql" />
     </jdbc:initialize-database>
 
-    <!-- mybatis sqlsession -->
+    <!-- sqlSessionFactory -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <!--dataSource属性指定要用到的连接池-->
         <property name="dataSource" ref="dataSource"/>
@@ -46,14 +49,11 @@
         <property name="basePackage" value="com.zhangxin.dao"/>
     </bean>
 
-    <!--管理SqlSession-->
-    <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
-        <constructor-arg ref="sqlSessionFactory"/>
-    </bean>
-
     <!-- spring transation manager -->
-    <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
+    <!-- transaction 注解驱动 -->
+    <tx:annotation-driven proxy-target-class="true" transaction-manager="transactionManager" />
 </beans>
