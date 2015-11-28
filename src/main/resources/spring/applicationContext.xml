@@ -9,7 +9,7 @@
 
     <context:property-placeholder location="classpath:jdbc.properties"/>
 
-    <import resource="classpath:mybatis/spring-dataSource.xml"/>
+    <import resource="classpath:spring/config/spring-dataSource.xml"/>
 
     <context:component-scan base-package="com.zhangxin"/>
 </beans>
