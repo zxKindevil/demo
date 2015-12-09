@@ -17,6 +17,12 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>com.qunar.hotel.qta</groupId>
+            <artifactId>order-actor.client</artifactId>
+            <version>1.0.1-SNAPSHOT</version>
+        </dependency>
+
         <!--JSR303 BeanValidation begin-->
         <dependency>
             <groupId>javax.validation</groupId>

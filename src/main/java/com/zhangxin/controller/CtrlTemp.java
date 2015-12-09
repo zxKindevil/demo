@@ -27,6 +27,12 @@ public class CtrlTemp {
     @Resource
     TempService tempService;
 
+    @RequestMapping(value="/actor",method=RequestMethod.GET)
+    public String actor(Model model){
+        System.out.println("actor");
+        return "test";
+    }
+
 	@RequestMapping(value="/hello",method=RequestMethod.GET)
 	public String helloGet(Model model){
 		System.out.println("helloGet");
