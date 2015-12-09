@@ -11,6 +11,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <org.springframework.version>4.2.0.RELEASE</org.springframework.version>
+        <org.springframework.security>3.2.3.RELEASE</org.springframework.security>
         <com.fasterxml.jackson.core.version>2.5.2</com.fasterxml.jackson.core.version>
         <org.slf4j.version>1.7.5</org.slf4j.version>
         <ch.qos.logback>1.1.2</ch.qos.logback>
@@ -119,12 +120,12 @@
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-web</artifactId>
-            <version>4.0.0.RELEASE</version>
+            <version>${org.springframework.security}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-config</artifactId>
-            <version>4.0.0.RELEASE</version>
+            <version>${org.springframework.security}</version>
         </dependency>
 
         <!--spring projects end-->

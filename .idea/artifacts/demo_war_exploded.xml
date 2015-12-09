@@ -31,10 +31,10 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-expression:4.2.0.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:4.2.0.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-web:4.2.0.RELEASE" />
-          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-web:4.0.0.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-web:3.2.3.RELEASE" />
           <element id="library" level="project" name="Maven: aopalliance:aopalliance:1.0" />
-          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-core:4.0.0.RELEASE" />
-          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-config:4.0.0.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-core:3.2.3.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-config:3.2.3.RELEASE" />
           <element id="library" level="project" name="Maven: commons-lang:commons-lang:2.6" />
           <element id="library" level="project" name="Maven: com.google.guava:guava:18.0" />
           <element id="library" level="project" name="Maven: org.slf4j:jcl-over-slf4j:1.7.5" />
