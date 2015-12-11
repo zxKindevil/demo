@@ -23,7 +23,7 @@
     
     <!-- 视图解析器 -->
 	<!--<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
-		<!--<property name="prefix" value="/WEB-INF/pages/" />-->
+		<!--<property name="prefix" value="/WEB-INF/actor/" />-->
 		<!--<property name="suffix" value=".jsp"/>-->
 	<!--</bean>-->
 

@@ -15,6 +15,8 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.JstlView;
 
 @Controller
 @RequestMapping("/temp")
@@ -28,9 +30,12 @@ public class CtrlTemp {
     TempService tempService;
 
     @RequestMapping(value="/actor",method=RequestMethod.GET)
-    public String actor(Model model){
+    public ModelAndView actor(ModelAndView model){
         System.out.println("actor");
-        return "test";
+//        JstlView jstlView = new JstlView();
+//        jstlView.setUrl("/actor.jsp");
+        model.setViewName("/actor.jsp");
+        return model;
     }
 
 	@RequestMapping(value="/hello",method=RequestMethod.GET)
