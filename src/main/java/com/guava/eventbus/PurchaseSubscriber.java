@@ -9,6 +9,7 @@ import com.google.common.eventbus.Subscribe;
  * @author zhangxin.zhang created on 15-12-12.
  */
 public class PurchaseSubscriber {
+
     @Subscribe
     public void handlePurchaseEvent(PurchaseEvent event) {
         System.out.println(this.getClass().getSimpleName()+" accept");
