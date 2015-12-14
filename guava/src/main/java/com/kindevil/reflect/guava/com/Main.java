@@ -112,7 +112,7 @@ public class Main {
         //支持的查询操作包括：
 
         TypeToken<String> typeToken = TypeToken.of(String.class);
-        TypeToken<List<String>> stringListTok = new TypeToken<List<String>>() {};
+        TypeToken<ArrayList<String>> stringListTok = new TypeToken<ArrayList<String>>() {};
 
         System.out.println(typeToken.getType()); //获得包装的java.lang.reflect.Type.
         System.out.println(stringListTok);
@@ -121,7 +121,7 @@ public class Main {
 
         System.out.println(stringListTok.getTypes());
 
-        TypeToken<List<String>>.TypeSet types = stringListTok.getTypes();
+        TypeToken<ArrayList<String>>.TypeSet types = stringListTok.getTypes();
         System.out.println(types.rawTypes());
     }
 
@@ -186,34 +186,34 @@ public class Main {
 
 //        方法的第一个参数是否被定义了注解@Nullable？
 
-        JDK:
-
-        for (Annotation annotation : method.getParameterAnnotations[0]) {
-            if (annotation instanceof Nullable) {
-                return true;
-            }
-        }
-        return false;
-
-        Invokable:
-
-        invokable.getParameters().get(0).isAnnotationPresent(Nullable.class)
-
-        构造函数和工厂方法如何共享同样的代码？
-
-        你是否很想重复自己，因为你的反射代码需要以相同的方式工作在构造函数和工厂方法中？
-
-        Invokable提供了一个抽象的概念。下面的代码适合任何一种方法或构造函数：
-
-        invokable.isPublic();
-        invokable.getParameters();
-        invokable.invoke(object, args);
-
-        List的List.get(int)返回类型是什么？
-        Invokable提供了与众不同的类型解决方案：
-
-        Invokable<List<String>, ?> invokable = new TypeToken<List<String>>()        {}.method(getMethod);
-        invokable.getReturnType(); // String.class
+//        JDK:
+//
+//        for (Annotation annotation : method.getParameterAnnotations[0]) {
+//            if (annotation instanceof Nullable) {
+//                return true;
+//            }
+//        }
+//        return false;
+//
+//        Invokable:
+//
+//        invokable.getParameters().get(0).isAnnotationPresent(Nullable.class)
+//
+//        构造函数和工厂方法如何共享同样的代码？
+//
+//        你是否很想重复自己，因为你的反射代码需要以相同的方式工作在构造函数和工厂方法中？
+//
+//        Invokable提供了一个抽象的概念。下面的代码适合任何一种方法或构造函数：
+//
+//        invokable.isPublic();
+//        invokable.getParameters();
+//        invokable.invoke(object, args);
+//
+//        List的List.get(int)返回类型是什么？
+//        Invokable提供了与众不同的类型解决方案：
+//
+//        Invokable<List<String>, ?> invokable = new TypeToken<List<String>>()        {}.method(getMethod);
+//        invokable.getReturnType(); // String.class
 
     }
 }
