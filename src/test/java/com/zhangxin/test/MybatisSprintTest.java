@@ -34,6 +34,8 @@ public class MybatisSprintTest {
     @Test
     public void testA(){
         tempService.insert(new TempBean("test"));
+        List<TempBean> tempBeans = tempBeanDao.selectAll();
+        System.out.println(tempBeans);
     }
 
     @Test

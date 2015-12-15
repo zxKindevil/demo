@@ -14,7 +14,7 @@
         select * from tempbean;
     </select>
 
-    <insert id="insert" parameterType="TempBean"
+    <insert id="insert" parameterType="com.zhangxin.bean.TempBean"
             useGeneratedKeys="true" keyProperty="id">
         insert into tempbean(tempstr)
         values(#{tempstr});

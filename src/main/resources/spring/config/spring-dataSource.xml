@@ -31,6 +31,7 @@
     <!-- 用建表语句，初始化一个库 -->
     <jdbc:initialize-database data-source="dataSource" ignore-failures="DROPS">
         <jdbc:script location="classpath:mybatis/sql/user.sql" />
+        <jdbc:script location="classpath:mybatis/sql/tempbean.sql" />
     </jdbc:initialize-database>
 
     <!-- sqlSessionFactory -->
