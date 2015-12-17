@@ -1,10 +1,14 @@
 package com.zhangxin.controller;
 
+import com.mycompany.MyBean;
 import com.zhangxin.bean.TempBean;
 import com.zhangxin.service.TempService;
 import com.zhangxin.exception.TempException;
 
 import javax.annotation.Resource;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import org.springframework.stereotype.Controller;
@@ -21,8 +25,16 @@ public class CtrlTemp {
     TempService tempService;
 
 	@RequestMapping(value="/hello",method=RequestMethod.GET)
-	public String helloGet(Model model){
-		System.out.println("helloGet");
+	public String helloGet(Model model) throws NamingException {
+
+//        Context initCtx = new InitialContext();
+//        Context envCtx = (Context) initCtx.lookup("java:comp/env");
+//        MyBean bean = (MyBean) envCtx.lookup("bean/MyBeanFactory");
+//
+//        System.out.println(("foo = " + bean.getFoo() + ", bar = " +
+//                bean.getBar()));
+        System.out.println("helloGet");
+
 		return "temp";
 	}
 	
