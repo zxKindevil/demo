@@ -1,5 +1,6 @@
 package com.zhangxin.controller;
 
+import com.ch01_starup_shutdown_callback.LifeCycleTest;
 import com.zhangxin.bean.TempBean;
 import com.zhangxin.service.TempService;
 import com.zhangxin.exception.TempException;
@@ -19,6 +20,8 @@ public class CtrlTemp {
 
     @Resource
     TempService tempService;
+    @Resource
+    LifeCycleTest lifeCycleTest;
 
 	@RequestMapping(value="/hello",method=RequestMethod.GET)
 	public String helloGet(Model model){
