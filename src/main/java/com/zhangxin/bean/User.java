@@ -42,5 +42,4 @@ public class User {
         this.userAddress = userAddress;
         return this;
     }
-
 }
