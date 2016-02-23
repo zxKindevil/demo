@@ -1,0 +1,6 @@
+2016-02-18 11:19:11,827 INFO [main] c.c.MyApp3
+                [MyApp3.java:30] Entering application.
+2016-02-18 11:19:11,833 INFO [main] c.c.MyApp3
+                [MyApp3.java:32] Exiting application.
+2016-02-18 11:19:11,833 DEBUG [main] c.c.MyApp3
+                [MyApp3.java:34] I am debug.

@@ -8,6 +8,7 @@
     <modules>
         <module>designpattern</module>
         <module>guava</module>
+        <module>logback</module>
     </modules>
     <name>demo Maven Webapp</name>
     <url>http://maven.apache.org</url>
@@ -21,6 +22,29 @@
     </properties>
     <dependencyManagement>
         <dependencies>
+            <!--slf4j begin-->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>jcl-over-slf4j</artifactId>
+                <version>${org.slf4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>log4j-over-slf4j</artifactId>
+                <version>${org.slf4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>jul-to-slf4j</artifactId>
+                <version>${org.slf4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>${ch.qos.logback}</version>
+            </dependency>
+            <!--slf4j end-->
+
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-framework-bom</artifactId>
