@@ -9,6 +9,7 @@
         <module>designpattern</module>
         <module>guava</module>
         <module>logback</module>
+        <module>asm</module>
     </modules>
     <name>demo Maven Webapp</name>
     <url>http://maven.apache.org</url>

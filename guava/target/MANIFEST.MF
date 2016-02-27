@@ -1,5 +1,4 @@
 Manifest-Version: 1.0
-Build-Jdk: 1.7.0_40
-Built-By: zhangxinzhang
+Built-By: Kindevil
 Created-By: IntelliJ IDEA
 
