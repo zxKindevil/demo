@@ -1,5 +1,10 @@
 package com.asm5;
 
+import org.objectweb.asm.ClassWriter;
+import org.objectweb.asm.util.TraceClassVisitor;
+
+import java.io.PrintWriter;
+
 /**
  * Created by Kindevil on 2016/2/27.
  */
