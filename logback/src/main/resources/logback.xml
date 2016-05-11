@@ -9,6 +9,8 @@
         </encoder>
     </appender>
 
+    <logger name="com.ch3.MyApp3" level="INFO" additivity="false"/>
+
     <logger name="chapters.configuration">
         <appender-ref ref="STDOUT" />
     </logger>
