@@ -13,6 +13,8 @@
         <module>netty</module>
         <module>beanutils</module>
         <module>jdk8</module>
+        <module>nezo</module>
+        <module>vertx</module>
     </modules>
     <name>demo Maven Webapp</name>
     <url>http://maven.apache.org</url>
