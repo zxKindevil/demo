@@ -1,5 +1,6 @@
 package com.kindevil.demo;
 
+import com.google.common.collect.Lists;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -10,6 +11,11 @@ import junit.framework.TestSuite;
 public class AppTest 
     extends TestCase
 {
+    public static void main(String[] args) {
+            Object[] objects = Lists.newArrayList(1, 2, 3, 4).toArray();
+        System.out.println(objects.length);
+    }
+
     /**
      * Create the test case
      *
