@@ -15,13 +15,18 @@
     <!-- 用dubbo协议在20880端口暴露服务 -->
     <dubbo:protocol name="dubbo" port="20880" />
 
+    <!-- 和本地bean一样实现服务 -->
+    <bean id="demoService" class="com.dubbo.test.service.impl.HelloServiceImpl" />
+
     <!-- 声明需要暴露的服务接口 -->
     <dubbo:service interface="com.dubbo.test.service.HelloService"
                    ref="demoService"
                    group="test-prod"
                    version="1.0" />
 
-    <!-- 和本地bean一样实现服务 -->
-    <bean id="demoService" class="com.dubbo.test.service.impl.HelloServiceImpl" />
+    <!-- 声明需要暴露的服务接口 -->
+    <dubbo:reference id="helloService" interface="com.dubbo.test.service.HelloService"
+                   group="test-prod"
+                   version="1.0" />
 
 </beans>
