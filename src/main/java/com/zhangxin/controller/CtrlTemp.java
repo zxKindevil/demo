@@ -25,16 +25,18 @@ public class CtrlTemp {
 	public String helloGet(Model model){
 		System.out.println("helloGet");
 		return "temp";
+
 	}
 
     @PrintMe
 	@RequestMapping(value="/hello",method=RequestMethod.POST)
-	public String helloPost(String name,HttpSession session,Model model){
+	public String helloPost(TempBean tempBean,String name,HttpSession session,Model model){
 
-        if( name.equals("error") ){
+        if(name !=null && name.equals("error") ){
 			throw new TempException("test error!");
 		}
-		session.setAttribute("name", name);
+        System.out.println(tempBean);
+        session.setAttribute("name", name);
         model.addAttribute("welcome","SpringMVC欢迎你:配置教程" +
                 "http://wiki.corp.qunar.com/pages/viewpage.action?pageId=73283087");
 		return "temp";

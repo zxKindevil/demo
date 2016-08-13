@@ -1,5 +1,13 @@
 package com.zhangxin.bean;
 
+import com.alibaba.fastjson.JSONObject;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import sun.jvm.hotspot.interpreter.BytecodePutStatic;
+
+import java.io.IOException;
+import java.rmi.MarshalledObject;
+import java.util.Map;
+
 public class User {
 
     private int id;
@@ -42,5 +50,6 @@ public class User {
         this.userAddress = userAddress;
         return this;
     }
+
 
 }

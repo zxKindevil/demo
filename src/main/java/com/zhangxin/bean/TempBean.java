@@ -9,7 +9,6 @@ public class TempBean {
 
     private int id;
 
-    @NotEmpty(message = "不能为null或空")
     private String tempstr;
 
     public TempBean() {
@@ -33,5 +32,13 @@ public class TempBean {
 
     public void setTempstr(String tempstr) {
         this.tempstr = tempstr;
+    }
+
+    @Override
+    public String toString() {
+        return "TempBean{" +
+                "id=" + id +
+                ", tempstr='" + tempstr + '\'' +
+                '}';
     }
 }

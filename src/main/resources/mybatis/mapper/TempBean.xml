@@ -20,4 +20,9 @@
         values(#{tempstr});
     </insert>
 
+    <select id="selectById" resultType="TempBean">
+        select * from tempbean
+        where id=#{id} and tempstr=#{tempstr};
+    </select>
+
 </mapper>
