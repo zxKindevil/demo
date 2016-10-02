@@ -1,4 +1,5 @@
 demo.iml
+*.iml
 .idea/*
 target/*
 */target/*
