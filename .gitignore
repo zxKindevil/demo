@@ -1,4 +1,15 @@
-demo.iml
 .idea/*
+*idea/
+demo.iml
 target/*
 */target/*
+
+asm/*
+beanutils/*
+designpattern/*
+guava/*
+jdk8/*
+logback/*
+netty/*
+nezo/*
+vertx/*
