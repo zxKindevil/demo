@@ -4,6 +4,8 @@ package com.zhangxin.controller;
 import javax.websocket.*;
 import javax.websocket.server.ServerEndpoint;
 import java.io.IOException;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -29,6 +31,10 @@ public class ChatAnnotation {
 
     @OnOpen
     public void start(Session session) {
+        System.out.println("test=" + session.getRequestParameterMap());
+        Map<String, List<String>> requestParameterMap = session.getRequestParameterMap();
+
+
         this.session = session;
         connections.add(this);
         String message = String.format("* %s %s", nickname, "has joined.");

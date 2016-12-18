@@ -78,9 +78,9 @@ limitations under the License.
 
     Chat.initialize = function() {
         if (window.location.protocol == 'http:') {
-            Chat.connect('ws://' + window.location.host + '/websocket/chat');
+            Chat.connect('ws://' + window.location.host + '/websocket/chat?testkey=ssssss');
         } else {
-            Chat.connect('wss://' + window.location.host + '/websocket/chat');
+            Chat.connect('wss://' + window.location.host + '/websocket/chat?testkey=ssssss');
         }
     };
 
