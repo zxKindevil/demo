@@ -12,6 +12,5 @@ import java.util.Map;
 public class SessionUtil {
     public static String getParam(Map<String, List<String>> params, String key) {
         return Iterables.getFirst(params.get(key), null);
-
     }
 }
