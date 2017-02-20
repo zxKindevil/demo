@@ -52,6 +52,8 @@ public class ChatAnnotation {
     @OnMessage
     public void incoming(String message) {
         // Never trust the client
+        System.out.println(message);
+        System.out.println("类加载器"+Thread.currentThread().getContextClassLoader());
         // TODO: 过滤输入的内容
         broadcast(message);
     }
