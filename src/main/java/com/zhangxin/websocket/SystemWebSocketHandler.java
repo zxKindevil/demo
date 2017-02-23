@@ -25,18 +25,12 @@ public class SystemWebSocketHandler implements WebSocketHandler {
     public void afterConnectionEstablished(WebSocketSession session) throws Exception {
         logger.debug("connect to the websocket success......");
         users.add(session);
-        String userName = (String) session.getAttributes().get("WEBSOCKET_USERNAME");
-        if (userName != null) {
-            //查询未读消息
-//            int count = webSocketService.getUnReadNews((String) session.getAttributes().get(Constants.WEBSOCKET_USERNAME));
-            int count = 10;
-            session.sendMessage(new TextMessage(count + ""));
-        }
     }
 
     @Override
     public void handleMessage(WebSocketSession session, WebSocketMessage<?> message) throws Exception {
-
+        System.out.println("收到消息" + message.getPayload().toString());
+        System.out.println("类加载器" + Thread.currentThread().getContextClassLoader());
         //sendMessageToUsers();
     }
 
