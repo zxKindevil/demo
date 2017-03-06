@@ -21,9 +21,17 @@
     </bean>
 
     <bean id="jedisConnectionFactory" class="org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory">
-        <property name="hostName" value="127.0.0.1"/>
-        <property name="password" value="${redis.password}"/>
-        <property name="port" value="${redis.port}"/>
+        <constructor-arg name="sentinelConfiguration" ref="sentinelConfiguration"/>
+    </bean>
+
+    <bean id="sentinelConfiguration" class="org.springframework.data.redis.connection.RedisSentinelConfiguration">
+        <constructor-arg name="master" value="1"/>
+        <constructor-arg name="sentinelHostAndPorts">
+            <set>
+                <value>127.0.0.1:6578</value>
+                <value>127.0.0.1:6578</value>
+            </set>
+        </constructor-arg>
     </bean>
 
 </beans>
