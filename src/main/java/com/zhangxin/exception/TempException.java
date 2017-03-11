@@ -1,8 +1,5 @@
 package com.zhangxin.exception;
 
-import com.avenwu.annotation.PrintMe;
-
-@PrintMe
 public class TempException extends RuntimeException {
 	private static final long serialVersionUID = -3089857579669202249L;
 
