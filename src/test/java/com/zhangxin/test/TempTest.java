@@ -12,7 +12,5 @@ import java.util.stream.Collectors;
 public class TempTest {
     @Test
     public void test() {
-        Lists.newArrayList().stream()
-                .collect(Collectors.toList());
     }
 }
