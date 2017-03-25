@@ -18,6 +18,8 @@
     <!-- 静态资源访问 -->
     <mvc:annotation-driven />
 
+	<bean name="testFilter" class="com.zhangxin.TestFilter"/>
+
 	<mvc:interceptors>
 		<bean class="com.zhangxin.TestInterceptor"/>
 
