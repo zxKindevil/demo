@@ -1,22 +1,15 @@
 package com.zhangxin.test;
 
 import org.elasticsearch.action.index.IndexResponse;
-import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.client.transport.TransportClient;
 import org.elasticsearch.common.settings.Settings;
 import org.elasticsearch.common.transport.InetSocketTransportAddress;
-import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.transport.client.PreBuiltTransportClient;
-import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.io.IOException;
 import java.io.Serializable;
 import java.net.InetAddress;
-import java.net.UnknownHostException;
 
 import static org.elasticsearch.common.xcontent.XContentFactory.jsonBuilder;
 
@@ -24,36 +17,40 @@ import static org.elasticsearch.common.xcontent.XContentFactory.jsonBuilder;
  * @author zhangxin
  *         Created on 17/3/16.
  */
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "classpath:spring/applicationContext.xml")
+//@RunWith(SpringJUnit4ClassRunner.class)
+//@ContextConfiguration(locations = "classpath:spring/applicationContext.xml")
 public class EsTest {
     //    @Resource
-    private TransportClient client;
-
-    @Before
-    public void init() throws UnknownHostException {
-        Settings settings = Settings.builder()
-                .put("cluster.name", "my-application").build();
-
-        client = new PreBuiltTransportClient(settings)
-                .addTransportAddress(new InetSocketTransportAddress(InetAddress.getByName("127.0.0.1"), 9300));
-    }
+//    private TransportClient client;
+//
+//    @Before
+//    public void init() throws UnknownHostException {
+//        Settings settings = Settings.builder()
+//                .put("cluster.name", "my-application").build();
+//
+//        client = new PreBuiltTransportClient(settings)
+//                .addTransportAddress(new InetSocketTransportAddress(InetAddress.getByName("127.0.0.1"), 9300));
+//    }
 
     @Test
     public void test() throws IOException {
         Settings settings = Settings.builder()
-                .put("cluster.name", "my-application").build();
+                .put("cluster.name", "usearch").build();
 
-        client = new PreBuiltTransportClient(settings)
-                .addTransportAddress(new InetSocketTransportAddress(InetAddress.getByName("127.0.0.1"), 9300));
+        TransportClient client = new PreBuiltTransportClient(settings)
+                .addTransportAddress(new InetSocketTransportAddress(InetAddress.getByName("10.32.64.19"), 9302))
+                .addTransportAddress(new InetSocketTransportAddress(InetAddress.getByName("10.32.64.20"), 9302));
+
+        System.out.println(client.listedNodes());
+        System.out.println(client.connectedNodes());
 
         Order order = new Order();
 
-        IndexResponse response = client.prepareIndex("test", "order", "1")
+        IndexResponse response = client.prepareIndex("test", "order", "2")
                 .setSource(jsonBuilder()
                         .startObject()
-                        .field("id", 1)
-                        .field("aaa", "fuck测试你妹的")
+                        .field("id", 2)
+                        .field("aaa", "fuck测试你妹的aaaa")
                         .field("bbb", "bbb")
                         .field("ccc", "ccc")
                         .endObject()
@@ -65,15 +62,15 @@ public class EsTest {
         System.out.println("here");
     }
 
-    @Test
-    public void query() {
-        SearchResponse searchResponse = client.prepareSearch()
-                .setIndices("test")
-                .setTypes("order")
-                .setQuery(QueryBuilders.queryStringQuery("妹"))
-                .get();
-        System.out.println(searchResponse);
-    }
+//    @Test
+//    public void query() {
+//        SearchResponse searchResponse = client.prepareSearch()
+//                .setIndices("test")
+//                .setTypes("order")
+//                .setQuery(QueryBuilders.queryStringQuery("妹"))
+//                .get();
+//        System.out.println(searchResponse);
+//    }
 }
 
 class Order implements Serializable {
