@@ -68,12 +68,9 @@ public class EsTest {
 
     @Test
     public void delete() {
-        QueryBuilder qb = QueryBuilders.rangeQuery("updateTime")
-                .gt("2017-01-01 05:35:00");
-
         DeleteByQueryAction.INSTANCE.newRequestBuilder(client)
                 .source("test")
-                .filter(qb)
+                .filter(QueryBuilders.boolQuery().must(QueryBuilders.typeQuery("order")).filter(QueryBuilders.rangeQuery("id").lt(new Date().getTime())))
                 .get();
     }
 
