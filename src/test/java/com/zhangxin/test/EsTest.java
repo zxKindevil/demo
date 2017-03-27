@@ -1,15 +1,21 @@
 package com.zhangxin.test;
 
 import org.elasticsearch.action.index.IndexResponse;
+import org.elasticsearch.action.search.SearchRequestBuilder;
 import org.elasticsearch.client.transport.TransportClient;
 import org.elasticsearch.common.settings.Settings;
 import org.elasticsearch.common.transport.InetSocketTransportAddress;
+import org.elasticsearch.index.query.QueryBuilder;
+import org.elasticsearch.index.query.QueryBuilders;
+import org.elasticsearch.index.reindex.DeleteByQueryAction;
 import org.elasticsearch.transport.client.PreBuiltTransportClient;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.io.IOException;
 import java.io.Serializable;
 import java.net.InetAddress;
+import java.util.Date;
 
 import static org.elasticsearch.common.xcontent.XContentFactory.jsonBuilder;
 
@@ -20,32 +26,19 @@ import static org.elasticsearch.common.xcontent.XContentFactory.jsonBuilder;
 //@RunWith(SpringJUnit4ClassRunner.class)
 //@ContextConfiguration(locations = "classpath:spring/applicationContext.xml")
 public class EsTest {
-    //    @Resource
-//    private TransportClient client;
-//
-//    @Before
-//    public void init() throws UnknownHostException {
-//        Settings settings = Settings.builder()
-//                .put("cluster.name", "my-application").build();
-//
-//        client = new PreBuiltTransportClient(settings)
-//                .addTransportAddress(new InetSocketTransportAddress(InetAddress.getByName("127.0.0.1"), 9300));
-//    }
+    private TransportClient client;
+
+    @Before
+    public void init() throws Exception {
+        Settings settings = Settings.builder()
+                .put("cluster.name", "usearch").build();
+        client = new PreBuiltTransportClient(settings)
+                .addTransportAddress(new InetSocketTransportAddress(InetAddress.getByName("10.32.64.19"), 9302))
+                .addTransportAddress(new InetSocketTransportAddress(InetAddress.getByName("10.32.64.20"), 9302));
+    }
 
     @Test
     public void test() throws IOException {
-        Settings settings = Settings.builder()
-                .put("cluster.name", "usearch").build();
-
-        TransportClient client = new PreBuiltTransportClient(settings)
-                .addTransportAddress(new InetSocketTransportAddress(InetAddress.getByName("10.32.64.19"), 9302))
-                .addTransportAddress(new InetSocketTransportAddress(InetAddress.getByName("10.32.64.20"), 9302));
-
-        System.out.println(client.listedNodes());
-        System.out.println(client.connectedNodes());
-
-        Order order = new Order();
-
         IndexResponse response = client.prepareIndex("test", "order", "2")
                 .setSource(jsonBuilder()
                         .startObject()
@@ -53,6 +46,7 @@ public class EsTest {
                         .field("aaa", "fuck测试你妹的aaaa")
                         .field("bbb", "bbb")
                         .field("ccc", "ccc")
+                        .field("updateTime", new Date().getTime())
                         .endObject()
                 )
                 .get();
@@ -61,6 +55,28 @@ public class EsTest {
 
         System.out.println("here");
     }
+
+    @Test
+    public void query() {
+        SearchRequestBuilder test = client.prepareSearch("test");
+
+        test.setQuery(QueryBuilders.boolQuery().must(QueryBuilders.rangeQuery("id").lt(new Date().getTime())));
+
+        System.out.println(test.get());
+
+    }
+
+    @Test
+    public void delete() {
+        QueryBuilder qb = QueryBuilders.rangeQuery("updateTime")
+                .gt("2017-01-01 05:35:00");
+
+        DeleteByQueryAction.INSTANCE.newRequestBuilder(client)
+                .source("test")
+                .filter(qb)
+                .get();
+    }
+
 
 //    @Test
 //    public void query() {
