@@ -1,15 +1,11 @@
 package com.zhangxin.test;
 
-import com.sun.deploy.security.DeployNTLMAuthCallback;
-import org.elasticsearch.action.fieldstats.FieldStats;
-import org.elasticsearch.action.index.IndexRequest;
 import org.elasticsearch.action.index.IndexResponse;
 import org.elasticsearch.action.search.SearchRequestBuilder;
 import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.client.transport.TransportClient;
 import org.elasticsearch.common.settings.Settings;
 import org.elasticsearch.common.transport.InetSocketTransportAddress;
-import org.elasticsearch.index.query.QueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.index.reindex.DeleteByQueryAction;
 import org.elasticsearch.search.SearchHit;
@@ -23,7 +19,6 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.net.InetAddress;
 import java.util.Date;
-import java.util.List;
 import java.util.Map;
 
 import static org.elasticsearch.common.xcontent.XContentFactory.jsonBuilder;
@@ -86,8 +81,6 @@ public class EsTest {
                 System.out.println(entry.getKey() + "=" + entry.getValue());
             }
         }
-
-
 
 
     }
