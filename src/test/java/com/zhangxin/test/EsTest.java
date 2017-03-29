@@ -1,13 +1,20 @@
 package com.zhangxin.test;
 
+import com.sun.deploy.security.DeployNTLMAuthCallback;
+import org.elasticsearch.action.fieldstats.FieldStats;
+import org.elasticsearch.action.index.IndexRequest;
 import org.elasticsearch.action.index.IndexResponse;
 import org.elasticsearch.action.search.SearchRequestBuilder;
+import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.client.transport.TransportClient;
 import org.elasticsearch.common.settings.Settings;
 import org.elasticsearch.common.transport.InetSocketTransportAddress;
 import org.elasticsearch.index.query.QueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.index.reindex.DeleteByQueryAction;
+import org.elasticsearch.search.SearchHit;
+import org.elasticsearch.search.fetch.subphase.highlight.HighlightBuilder;
+import org.elasticsearch.search.fetch.subphase.highlight.HighlightField;
 import org.elasticsearch.transport.client.PreBuiltTransportClient;
 import org.junit.Before;
 import org.junit.Test;
@@ -16,6 +23,8 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.net.InetAddress;
 import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 import static org.elasticsearch.common.xcontent.XContentFactory.jsonBuilder;
 
@@ -39,13 +48,13 @@ public class EsTest {
 
     @Test
     public void test() throws IOException {
-        IndexResponse response = client.prepareIndex("test", "order", "2")
+        IndexResponse response = client.prepareIndex("test", "orde11", "2")
                 .setSource(jsonBuilder()
                         .startObject()
                         .field("id", 2)
                         .field("aaa", "fuck测试你妹的aaaa")
                         .field("bbb", "bbb")
-                        .field("ccc", "ccc")
+                        .field("ccc", "sdfdsfssdfsdf水电费2234水电费水电费是放水电费水电费水电费水电费水电费水电费水电费水电费水电费水电费水电费我只是一个测试束带结发克里斯多夫级科室老地方级科室对方级科室对方就上课了打飞机是考虑到房间卡死了打飞机卡死了代缴费莱克斯顿及父类卡数据的福克斯来得及发可怜世纪东方考虑数据的反馈 ")
                         .field("updateTime", new Date().getTime())
                         .endObject()
                 )
@@ -58,11 +67,30 @@ public class EsTest {
 
     @Test
     public void query() {
-        SearchRequestBuilder test = client.prepareSearch("test");
+        HighlightBuilder highlightBuilder = new HighlightBuilder();
+        highlightBuilder.field("*").requireFieldMatch(false);
 
-        test.setQuery(QueryBuilders.boolQuery().must(QueryBuilders.rangeQuery("id").lt(new Date().getTime())));
+        SearchRequestBuilder test = client.prepareSearch("test")
+                .highlighter(highlightBuilder)
+                .setQuery(QueryBuilders.queryStringQuery("我只是"));
 
-        System.out.println(test.get());
+
+        SearchResponse searchHits = test.get();
+        System.out.println(searchHits);
+
+        for (SearchHit hit : searchHits.getHits()) {
+            Map<String, HighlightField> highlightFields = hit.getHighlightFields();
+
+            for (Map.Entry<String, HighlightField> entry : highlightFields.entrySet()) {
+                HighlightField value = entry.getValue();
+                System.out.println(entry.getKey() + "=" + entry.getValue());
+            }
+
+
+        }
+
+
+
 
     }
 
@@ -70,7 +98,7 @@ public class EsTest {
     public void delete() {
         DeleteByQueryAction.INSTANCE.newRequestBuilder(client)
                 .source("test")
-                .filter(QueryBuilders.boolQuery().must(QueryBuilders.typeQuery("order")).filter(QueryBuilders.rangeQuery("id").lt(new Date().getTime())))
+                .filter(QueryBuilders.boolQuery().must(QueryBuilders.typeQuery("orde11")).filter(QueryBuilders.rangeQuery("id").lt(new Date().getTime())))
                 .get();
     }
 
