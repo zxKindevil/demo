@@ -85,8 +85,6 @@ public class EsTest {
                 HighlightField value = entry.getValue();
                 System.out.println(entry.getKey() + "=" + entry.getValue());
             }
-
-
         }
 
 
