@@ -7,11 +7,15 @@
        http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <context:property-placeholder location="classpath:jdbc.properties"/>
+    <!--<context:property-placeholder location="classpath:jdbc.properties"/>-->
 
-    <import resource="classpath:spring/config/spring-dataSource.xml"/>
-    <import resource="classpath:spring/config/spring-es.xml"/>
+    <!--<import resource="classpath:spring/config/spring-dataSource.xml"/>-->
+    <!--<import resource="classpath:spring/config/spring-es.xml"/>-->
+    <bean class="com.benmu.mts.unify.search.api.bean.factory.TransportClientFactoryBean">
+        <property name="clusterName" value="mts.elastic.index.center.beta1"/>
+        <property name="clusterNodes" value="10.32.64.13:8300"/>
+        <property name="user" value="test:test"/>
+    </bean>
 
-
-    <context:component-scan base-package="com.zhangxin"/>
+    <!--<context:component-scan base-package="com.zhangxin"/>-->
 </beans>
