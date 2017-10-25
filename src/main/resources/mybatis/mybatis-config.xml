@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
-"http://mybatis.org/dtd/mybatis-3-config.dtd">
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <settings>
         <!--允许在嵌套语句中使用行分界（RowBounds）default false-->
@@ -11,7 +11,7 @@
 
     <!--自指定typeHandler-->
     <!--<typeHandlers>-->
-        <!--<typeHandler handler="com.qunar.zhangxin.handler.OrderTypeHandler"-->
-                     <!--javaType="com.qunar.zhangxin.handler.Order"/>-->
+    <!--<typeHandler handler="com.qunar.zhangxin.handler.OrderTypeHandler"-->
+    <!--javaType="com.qunar.zhangxin.handler.Order"/>-->
     <!--</typeHandlers>-->
 </configuration>
