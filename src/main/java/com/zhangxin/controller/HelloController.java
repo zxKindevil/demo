@@ -3,20 +3,15 @@ package com.zhangxin.controller;
 import com.google.common.base.Charsets;
 import com.google.common.base.Joiner;
 import com.google.common.io.Files;
-import com.sun.tools.javac.tree.DCTree;
-import jdk.nashorn.internal.runtime.regexp.JoniRegExp;
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.springframework.beans.factory.InitializingBean;
-import org.springframework.format.datetime.standard.DateTimeContext;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.config.annotation.InterceptorRegistration;
 
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -39,7 +34,7 @@ public class HelloController implements InitializingBean {
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        new Thread(()->{
+        new Thread(() -> {
             try {
                 deal();
             } catch (IOException e) {
@@ -50,12 +45,12 @@ public class HelloController implements InitializingBean {
         }).start();
     }
 
-    public  void deal() throws IOException, InterruptedException {
+    public void deal() throws IOException, InterruptedException {
         Connection connect = Jsoup.connect(BUY);
 
         File file = new File("price.txt");
 
-        while(!Thread.interrupted()){
+        while (!Thread.interrupted()) {
             BigDecimal finalmin = BigDecimal.ZERO;
             BigDecimal finalshijia;
             BigDecimal finalyijia;
@@ -65,8 +60,8 @@ public class HelloController implements InitializingBean {
             BigDecimal min = new BigDecimal(Integer.MAX_VALUE);
             for (Element element : elements) {
                 String text = element.text();
-                text=text.replaceAll(",","");
-                if(new BigDecimal(text).compareTo(min)<0){
+                text = text.replaceAll(",", "");
+                if (new BigDecimal(text).compareTo(min) < 0) {
                     min = new BigDecimal(text);
                     finalmin = min;
                 }
@@ -75,23 +70,21 @@ public class HelloController implements InitializingBean {
             Elements box = doc.getElementsByClass("box");
             Elements select = box.select("span[class=price]");
             String shijia = select.get(0).text();
-            shijia = shijia.replaceAll("CNY","").replaceAll(" ","").replaceAll(",","");
+            shijia = shijia.replaceAll("CNY", "").replaceAll(" ", "").replaceAll(",", "");
             finalshijia = new BigDecimal(shijia);
             finalyijia = finalmin.subtract(finalshijia);
 
             String format = yymmdd.format(new Date());
-            String join = Joiner.on(",").join(format, finalmin, finalshijia, finalyijia)+"\n";
+            String join = Joiner.on(",").join(format, finalmin, finalshijia, finalyijia) + "\n";
             System.out.println(join);
-            Files.append(join,file,Charsets.UTF_8);
+            Files.append(join, file, Charsets.UTF_8);
             TimeUnit.SECONDS.sleep(1);
         }
 
 
-
-
     }
 
-    static  SimpleDateFormat yymmdd=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    static SimpleDateFormat yymmdd = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
 
 }
