@@ -78,7 +78,7 @@ public class HelloController implements InitializingBean {
             String join = Joiner.on(",").join(format, finalmin, finalshijia, finalyijia) + "\n";
             System.out.println(join);
             Files.append(join, file, Charsets.UTF_8);
-            TimeUnit.SECONDS.sleep(1);
+            TimeUnit.SECONDS.sleep(20);
         }
 
 
