@@ -9,6 +9,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -51,34 +52,38 @@ public class HelloController implements InitializingBean {
         File file = new File("price.txt");
 
         while (!Thread.interrupted()) {
-            BigDecimal finalmin = BigDecimal.ZERO;
-            BigDecimal finalshijia;
-            BigDecimal finalyijia;
+            try {
+                BigDecimal finalmin = BigDecimal.ZERO;
+                BigDecimal finalshijia;
+                BigDecimal finalyijia;
 
-            Document doc = connect.get();
-            Elements elements = doc.getElementsByClass("recommend-card__price");
-            BigDecimal min = new BigDecimal(Integer.MAX_VALUE);
-            for (Element element : elements) {
-                String text = element.text();
-                text = text.replaceAll(",", "");
-                if (new BigDecimal(text).compareTo(min) < 0) {
-                    min = new BigDecimal(text);
-                    finalmin = min;
+                Document doc = connect.get();
+                Elements elements = doc.getElementsByClass("recommend-card__price");
+                BigDecimal min = new BigDecimal(Integer.MAX_VALUE);
+                for (Element element : elements) {
+                    String text = element.text();
+                    text = text.replaceAll(",", "");
+                    if (new BigDecimal(text).compareTo(min) < 0) {
+                        min = new BigDecimal(text);
+                        finalmin = min;
+                    }
                 }
+
+                Elements box = doc.getElementsByClass("box");
+                Elements select = box.select("span[class=price]");
+                String shijia = select.get(0).text();
+                shijia = shijia.replaceAll("CNY", "").replaceAll(" ", "").replaceAll(",", "");
+                finalshijia = new BigDecimal(shijia);
+                finalyijia = finalmin.subtract(finalshijia);
+
+                String format = yymmdd.format(new Date());
+                String join = Joiner.on(",").join(format, finalmin, finalshijia, finalyijia) + "\n";
+                System.out.println(join);
+                Files.append(join, file, Charsets.UTF_8);
+                TimeUnit.SECONDS.sleep(20);
+            } catch (Exception e) {
+                //ignore
             }
-
-            Elements box = doc.getElementsByClass("box");
-            Elements select = box.select("span[class=price]");
-            String shijia = select.get(0).text();
-            shijia = shijia.replaceAll("CNY", "").replaceAll(" ", "").replaceAll(",", "");
-            finalshijia = new BigDecimal(shijia);
-            finalyijia = finalmin.subtract(finalshijia);
-
-            String format = yymmdd.format(new Date());
-            String join = Joiner.on(",").join(format, finalmin, finalshijia, finalyijia) + "\n";
-            System.out.println(join);
-            Files.append(join, file, Charsets.UTF_8);
-            TimeUnit.SECONDS.sleep(20);
         }
 
 
