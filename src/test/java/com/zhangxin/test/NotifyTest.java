@@ -45,12 +45,7 @@ public class NotifyTest {
             });
             thread.start();
         }
-        if (thread != null) {
-            thread.join();
-        }
         System.out.println(parse);
-
-
         System.out.println(time);
 
     }
