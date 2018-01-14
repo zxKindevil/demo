@@ -1,52 +1,80 @@
 package com.zhangxin.test;
 
+import javazoom.jl.decoder.JavaLayerException;
+import javazoom.jl.player.Player;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import javax.swing.*;
+import java.applet.Applet;
+import java.applet.AudioClip;
 import java.awt.*;
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Random;
+import java.util.concurrent.Exchanger;
 import java.util.concurrent.TimeUnit;
 
 /**
  * @author zhangxin on 2018/1/13.
  */
 public class NotifyTest {
-
+    public static String cookie = "akoxTldqY2ZEa3pRcTRFdVZPQkRBSmo3T0JHeXN3NXRGQTdvMnZGbmZtK01hSDZEdWN2SFFQTCtITDJzdUt0eiswRnNJeTAzVG9FZlMxZGg3Z0Uyb3FQWlV1Umx2Nkd3WHE4QWNjV2laWjBkNXpZUERMdy9PaHZwU21uQ3ExVWg3L1QwZlFETVk5WU4xbytva05DQThtMGpXWFEzTmxkNTBNTFpYcS9mT04yYXVDYUNFRThDaUZqc3hlaXJXMjB1R0UxTEZrY3pKbjN5N1dDN3BQODIyNTMrZnBJZWVHNHI1bGZyZ08wTVN6RTZtakFiZTl4cGVrL2YrYWc2Z2JabDREUk5Jazg4S3p1LzhmNmlLQnh3V0g5dGoyT0k0Q0ZrQTh2OUlMZmo4d05kbEdlOU9xWWE0YTlJcndKSGI0b2xzZE83M0tXUWdvL3dVb3hZbE5QQkJ2OWpXR2YyeXZNUk5ZYmJqaE5kUHg2Wk1XbFJZVG1MS3ZneTZFOGErdlRBOGtDUStKUnN0TGJVQVpkNldKK0U2bkVrWmpQV1BXNlNpeEpyWWdROGRyeHE1UGs3dkY5MW12TVBhVjlXdURrYmhpQ3VpcGdCMzVGYThPbkdMNFJHbEN3UVFDb0gveFB4QWhrbXh3dU54cTQ9LS1mQ2g1SXQ4QmdyeHI2Q01YLzdQUXd3PT0%3D--8ad90270b8b675a23cbc696393280c973389a8e1";
     public static SimpleDateFormat yymmdd = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
-    public static void main(String[] args) throws IOException, ParseException, InterruptedException {
-        Document doc = Jsoup.connect("https://otcbtc.com/account/notifications")
-                .userAgent("Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36")
-                .cookie("_otcbtc_session", "eTBhZUZLMkpJOVFpTGlSYzZoYWI5dzlTUUJtSU80c0x4Yjc3MjBBYURFM1pBSlJ1UDVlSkdOcWZXRXJCVFRVZDV6NVJQVGZGNEpqeVNyVkNibUxEc1dQWkxoZnV0MlJRVjBFeTVUMmgyWW1ITW5taDRJK2pocE9Id0tsT3lUOHBVV2tHVkp2UUdaemQzT1RBbzRHQStyTDZwc29xOEUzRkt3eWtuMWF5MHRKY3lwRG03S3JZNUI5N3VId0VBOTVrWUp2MWlqcjAzKzV5Z0NFYkVBY3hGRzNDdXp3dThtd3VaYUdsMDBKMWxPcWJkdFQyaGhiMWxTV0xjTU9mak00emxLTWZidm1ON2ZmZnJNN0FRTU55aDREUlJidGZQeUF5MGlTQ3cxRnNhalpQaXEzS2lVNE1wREk2QW1ZYU9ZV2UxYjJ5QmJ4SGhxYk13ZXRGVVFpZE5adk9hWGo3M1F2WmUvV1FCSm1MT3VhWjlzeEpLSmxkdzlDbUs3ZFJCVDRna3dyb05XUmNmWDFPZjVlM1pYMWxyNjBYOE5JRTY5ejBXOC9oQ2MwdXBacW9TMmhmK3Iwa1M2dGxtN1hPc29SRDRzTWduMi9lOURkc1g1TUJQVGNoS0Z0UlJkV2t4YkllN2lPWXVoeEcxYUE9LS1aRHdJQWpGU1dpWktvT0NGUzlSQkFBPT0%3D--ec0e6a4c2dfb27f171c80604bd071496c180b183")
-                .get();
+    public static void main(String[] args) throws IOException, ParseException, InterruptedException, JavaLayerException {
+        while (!Thread.interrupted()) {
+            try {
+                Document doc = Jsoup.connect("https://otcbtc.com/account/notifications")
+                        .userAgent("Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36")
+                        .cookie("_otcbtc_session", cookie)
+                        .get();
 
-        Elements time = doc.getElementsByClass("time");
-        Element element = time.get(1);
-        String text = element.text() + ":00";
-        Date parse = yymmdd.parse(text);
+                Elements time = doc.getElementsByClass("time");
+                Element element = time.get(1);
+                String text = element.text() + ":00";
+                Date parse = yymmdd.parse(text);
 
-        long min2 = TimeUnit.MINUTES.toMillis(120);
-        Thread thread = null;
-        if (new Date().getTime() - parse.getTime() < min2) {
-            thread = new Thread(() -> {
-                for (int i = 0; i < 20; i++) {
-                    Toolkit.getDefaultToolkit().beep();
-                    try {
-                        TimeUnit.SECONDS.sleep(1);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+                long min2 = TimeUnit.MINUTES.toMillis(2);
+                if (new Date().getTime() - parse.getTime() < min2) {
+                    play();
                 }
-            });
-            thread.start();
+            } catch (Exception e) {
+                e.printStackTrace();
+                play();
+            }
+            sleepRandom(60,20);
         }
-        System.out.println(parse);
-        System.out.println(time);
+    }
 
+    public static void sleepRandom(int max,int min){
+        try {
+            int sleeptime = min + Math.abs(new Random().nextInt()) % (max - min);
+            System.out.println("sleep sec "+sleeptime);
+            TimeUnit.SECONDS.sleep(sleeptime);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public static void play(){
+        try {
+            File file = new File("/Users/zhangxin/z/me/吉.wav"); // 获取文件，传入的参数为String类型，文件的路径
+            URL url = file.toURL(); //获取文件的路径
+            AudioClip ac = Applet.newAudioClip(url); // 因为AudioClip是接口不能实例化，所有用Applet中的newAduioClip来实例化
+            ac.play(); //播放
+        } catch (MalformedURLException e) {
+            System.out.println(e);
+        }
     }
 }

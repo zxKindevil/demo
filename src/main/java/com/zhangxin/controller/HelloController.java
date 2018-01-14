@@ -148,8 +148,6 @@ public class HelloController implements InitializingBean {
         } catch (Exception e) {
             System.out.println(e);
         }
-
-
     }
 
 

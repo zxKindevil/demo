@@ -3,6 +3,7 @@
 demo.iml
 target/*
 */target/*
+nohup.out
 
 asm/*
 beanutils/*

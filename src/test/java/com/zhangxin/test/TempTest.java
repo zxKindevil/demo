@@ -14,11 +14,6 @@ import java.util.stream.Collectors;
 public class TempTest {
     @Test
     public void test() throws InterruptedException {
-        for(int i=0;i<100;i++){
-            Toolkit.getDefaultToolkit().beep();
-            TimeUnit.SECONDS.sleep(1);
-        }
-
         Lists.newArrayList().stream()
                 .collect(Collectors.toList());
     }
