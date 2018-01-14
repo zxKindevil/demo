@@ -26,8 +26,7 @@ import java.util.concurrent.ScheduledExecutorService;
  */
 @Component
 public class AppServer implements InitializingBean {
-    private ExecutorService executors = Executors.newCachedThreadPool(Executors.defaultThreadFactory());
-
+    private ExecutorService executors = Executors.newFixedThreadPool(4);
 
     @Resource
     private ETHPriceHandler handler;
@@ -42,12 +41,14 @@ public class AppServer implements InitializingBean {
         //同步加载配置文件
         Configs.initListenConfig();
         //抓取报价
-        new Thread(dealETHPrice()).run();
-        //交易提醒
-        new Thread(dealOrderNotify()).run();
+        executors.submit(dealETHPrice());
+
+        executors.submit(dealOrderNotify());
+
+        System.in.read();
     }
 
-    private Runnable dealOrderNotify() {
+    public Runnable dealOrderNotify() {
         return ()->{
             while (!Thread.interrupted()) {
                 try {

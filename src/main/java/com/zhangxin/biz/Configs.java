@@ -50,7 +50,6 @@ public class Configs {
             Properties temp = new Properties();
             temp.load(new FileInputStream(new File(configPath)));
             properties = temp;
-            System.out.println(temp);
         } catch (IOException e) {
             e.printStackTrace();
         }

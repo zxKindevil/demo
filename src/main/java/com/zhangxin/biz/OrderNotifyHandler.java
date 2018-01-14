@@ -24,10 +24,10 @@ public class OrderNotifyHandler {
 
             long min2 = TimeUnit.MINUTES.toMillis(Configs.getInt("neworder.notiy.time.min"));
             if (new Date().getTime() - parse.getTime() < min2) {
-                SoundPlayer.playJI();
+                SoundPlayer.playWolf();
             }
         } catch (ParseException e) {
-            SoundPlayer.playJI();
+            SoundPlayer.playWolf();
             e.printStackTrace();
         }
     }

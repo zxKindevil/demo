@@ -4,6 +4,7 @@ demo.iml
 target/*
 */target/*
 nohup.out
+price.txt
 
 asm/*
 beanutils/*
