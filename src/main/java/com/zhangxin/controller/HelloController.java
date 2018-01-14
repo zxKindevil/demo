@@ -24,7 +24,7 @@ import java.util.concurrent.TimeUnit;
  * @author zhangxin on 2018/1/9.
  */
 @RestController
-public class HelloController implements InitializingBean {
+public class HelloController  {
     public static SimpleDateFormat yymmdd = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     public static String BUY = "https://otcbtc.com/sell_offers?currency=eth&fiat_currency=cny&payment_type=all";
     public static String SALE = "https://otcbtc.com/buy_offers?currency=eth&fiat_currency=cny&payment_type=all";
@@ -33,19 +33,6 @@ public class HelloController implements InitializingBean {
     @RequestMapping("/")
     public String index() {
         return "Greetings from Spring Boot!";
-    }
-
-    @Override
-    public void afterPropertiesSet() throws Exception {
-        new Thread(() -> {
-            try {
-                deal();
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }).start();
     }
 
     public void deal() throws IOException, InterruptedException {
@@ -75,10 +62,7 @@ public class HelloController implements InitializingBean {
                 yijia = buymin.subtract(finalshijia);
                 chajia = buymin.subtract(salemax);
 
-                String format = yymmdd.format(new Date());
-                String join = Joiner.on(",").join(format, buymin, finalshijia, yijia, salemax, chajia) + "\n";
-                System.out.println(join);
-                Files.append(join, file, Charsets.UTF_8);
+
 
                 this.notifyme(notify_session);
                 TimeUnit.SECONDS.sleep(20);

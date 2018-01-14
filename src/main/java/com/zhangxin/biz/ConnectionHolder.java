@@ -13,6 +13,7 @@ import java.util.Map;
 public class ConnectionHolder {
     public static Connection eth_sell_connection = Jsoup.connect(Constant.ETH_SELL_PAGE);
     public static Connection eth_buy_connection = Jsoup.connect(Constant.ETH_BUY_PAGE);
+    public static Connection order_notifys;
 
     public static Map<Key, Connection> connectionMap = Maps.newHashMap();
 

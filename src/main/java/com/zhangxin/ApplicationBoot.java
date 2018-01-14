@@ -5,6 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 
 import java.util.Arrays;
 
@@ -12,10 +13,11 @@ import java.util.Arrays;
  * @author zhangxin on 2018/1/9.
  */
 @SpringBootApplication
-public class Application {
+@ComponentScan(basePackages={"com"})
+public class ApplicationBoot {
 
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(ApplicationBoot.class, args);
     }
 
     @Bean
@@ -30,7 +32,6 @@ public class Application {
                 System.out.println("============");
                 System.out.println(beanName);
             }
-
         };
     }
 

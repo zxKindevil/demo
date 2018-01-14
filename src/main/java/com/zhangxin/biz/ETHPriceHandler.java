@@ -1,14 +1,19 @@
 package com.zhangxin.biz;
 
+import com.google.common.base.Joiner;
+import com.zhangxin.utils.Constant;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
 /**
  * @author zhangxin on 2018/1/14.
  */
+@Service
 public class ETHPriceHandler {
 
     public void handle(Document sellpage, Document buypage) {
@@ -20,6 +25,22 @@ public class ETHPriceHandler {
         String topBuyer = dealTopper(buypage);
 
         BigDecimal subprice = sellPrice.subtract(bugPrice);
+
+        String format = Constant.YYMMDD.format(new Date());
+        String show = Joiner.on(",").join(format, sellPrice, topSeller, bugPrice, topBuyer, marketPrice, subprice) + "\n";
+        System.out.print(show);
+
+        //===
+        this.notityPrice(sellPrice, bugPrice);
+    }
+
+    private void notityPrice(BigDecimal sellPrice, BigDecimal bugPrice) {
+        if (sellPrice.compareTo(new BigDecimal(Configs.getString("eth.sellprice.gt.notify"))) >= 0) {
+            SoundPlayer.playJI();
+        }
+        if (bugPrice.compareTo(new BigDecimal(Configs.getString("eth.buyprice.lt.notify"))) <= 0) {
+            SoundPlayer.playJI();
+        }
     }
 
     private BigDecimal dealBuyPrice(Document buypage) {
@@ -46,16 +67,16 @@ public class ETHPriceHandler {
 
     private BigDecimal dealSellPrice(Document doc) {
         Elements elements = doc.getElementsByClass("recommend-card__price");
-        BigDecimal maxSellPrice = BigDecimal.ZERO;
+        BigDecimal minprice = new BigDecimal(1000000);
         for (Element element : elements) {
             String text = element.text();
             text = text.replaceAll(",", "");
-            if (new BigDecimal(text).compareTo(maxSellPrice) > 0) {
-                maxSellPrice = new BigDecimal(text);
+            if (new BigDecimal(text).compareTo(minprice) < 0) {
+                minprice = new BigDecimal(text);
             }
         }
 
-        return maxSellPrice;
+        return minprice;
     }
 
     private String dealTopper(Document document) {
