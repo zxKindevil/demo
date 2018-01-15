@@ -5,6 +5,7 @@ target/*
 */target/*
 nohup.out
 price.txt
+.DS_Store
 
 asm/*
 beanutils/*
