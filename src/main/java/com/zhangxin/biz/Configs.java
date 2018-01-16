@@ -23,7 +23,7 @@ public class Configs {
     }
 
     public static boolean getBoolean(String key) {
-        return true;
+        return Boolean.valueOf((String) properties.get(key));
     }
 
     public static int getInt(String key) {

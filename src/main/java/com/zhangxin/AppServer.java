@@ -49,16 +49,18 @@ public class AppServer implements InitializingBean {
     public Runnable dealOrderNotify() {
         return ()->{
             while (!Thread.interrupted()) {
-                try {
-                    Document orderNotifyPage = Jsoup.connect(Constant.ORDER_NOTIFYS)
-                            .userAgent("Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36")
-                            .cookie("_otcbtc_session", Configs.getString("user.lg.cookie"))
-                            .get();
+                if(Configs.getBoolean("switch.open.order.notify")){
+                    try {
+                        Document orderNotifyPage = Jsoup.connect(Constant.ORDER_NOTIFYS)
+                                .userAgent("Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36")
+                                .cookie("_otcbtc_session", Configs.getString("user.lg.cookie"))
+                                .get();
 
-                    orderNotifyHandler.handle(orderNotifyPage);
+                        orderNotifyHandler.handle(orderNotifyPage);
 
-                } catch (Exception e) {
-                    e.printStackTrace();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
                 SleepUtils.sleepRandomSec(10, 5);
             }
