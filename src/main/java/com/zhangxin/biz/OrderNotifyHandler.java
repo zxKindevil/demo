@@ -26,7 +26,7 @@ public class OrderNotifyHandler {
             if (new Date().getTime() - parse.getTime() < min2) {
                 SoundPlayer.playWolf();
             }
-        } catch (ParseException e) {
+        } catch (Exception e) {
             SoundPlayer.playWolf();
             e.printStackTrace();
         }

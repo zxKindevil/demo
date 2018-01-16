@@ -44,8 +44,6 @@ public class AppServer implements InitializingBean {
         executors.submit(dealETHPrice());
 
         executors.submit(dealOrderNotify());
-
-        System.in.read();
     }
 
     public Runnable dealOrderNotify() {
