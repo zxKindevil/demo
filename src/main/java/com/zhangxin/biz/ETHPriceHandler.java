@@ -46,6 +46,9 @@ public class ETHPriceHandler {
         if (bugPrice.compareTo(new BigDecimal(Configs.getString("eth.buyprice.lt.notify"))) <= 0) {
             SoundPlayer.playMie();
         }
+        if (sellPrice.subtract(bugPrice).compareTo(new BigDecimal(Configs.getString("switch.eth.open.price.diff"))) >= 0) {
+            SoundPlayer.playMie();
+        }
     }
 
     private BigDecimal dealBuyPrice(Document buypage) {
