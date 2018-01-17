@@ -40,20 +40,20 @@ public class ETHPriceHandler {
         this.notityPrice(sellPrice, bugPrice);
 
         //===
-        if(lifeaccount >= Configs.getInt("total.life.count")){
+        if (lifeaccount >= Configs.getInt("total.life.count")) {
             SoundPlayer.playMie();
         }
-        if(Configs.getBoolean("eth.switch.top.seller") && !topSeller.equals("zxkindevil")){
+        if (Configs.getBoolean("eth.switch.top.seller") && !topSeller.equals("zxkindevil")) {
             SoundPlayer.playMie("eth.switch.top.seller");
         }
-        if(Configs.getBoolean("eth.switch.top.buyyer") && !topBuyer.equals("zxkindevil")){
+        if (Configs.getBoolean("eth.switch.top.buyyer") && !topBuyer.equals("zxkindevil")) {
             SoundPlayer.playMie("eth.switch.top.buyyer");
         }
     }
 
     private int deallife(Document sellpage) {
         Elements elem = sellpage.getElementsByClass("live-count");
-        return Integer.valueOf(elem.text().replaceAll(",",""));
+        return Integer.valueOf(elem.text().replaceAll(",", ""));
     }
 
     private void notityPrice(BigDecimal sellPrice, BigDecimal bugPrice) {
@@ -62,6 +62,9 @@ public class ETHPriceHandler {
         }
         if (bugPrice.compareTo(new BigDecimal(Configs.getString("eth.buyprice.lt.notify"))) <= 0) {
             SoundPlayer.playMie("eth.buyprice.lt.notify");
+        }
+        if (bugPrice.compareTo(new BigDecimal(Configs.getString("eth.buyprice.gt.notify"))) >= 0) {
+            SoundPlayer.playMie("eth.buyprice.gt.notify");
         }
         if (sellPrice.subtract(bugPrice).compareTo(new BigDecimal(Configs.getString("switch.eth.open.price.diff"))) >= 0) {
             SoundPlayer.playMie("switch.eth.open.price.diff");
