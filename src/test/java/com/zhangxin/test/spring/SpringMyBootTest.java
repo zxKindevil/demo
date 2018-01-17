@@ -25,7 +25,6 @@ public class SpringMyBootTest {
 
     @Test
     public void sound() throws IOException {
-        SoundPlayer.playMie();
         System.in.read();
     }
 }

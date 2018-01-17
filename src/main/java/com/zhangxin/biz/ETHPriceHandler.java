@@ -25,6 +25,7 @@ public class ETHPriceHandler {
         BigDecimal sellPrice = dealSellPrice(sellpage);
         BigDecimal marketPrice = dealMarketPrice(sellpage);
         String topSeller = dealTopper(sellpage);
+        int lifeaccount = this.deallife(sellpage);
 
         BigDecimal bugPrice = dealBuyPrice(buypage);
         String topBuyer = dealTopper(buypage);
@@ -37,6 +38,22 @@ public class ETHPriceHandler {
 
         //===
         this.notityPrice(sellPrice, bugPrice);
+
+        //===
+        if(lifeaccount >= Configs.getInt("total.life.count")){
+            SoundPlayer.playMie();
+        }
+        if(Configs.getBoolean("eth.switch.top.seller") && !topSeller.equals("zxkindevil")){
+            SoundPlayer.playMie("eth.switch.top.seller");
+        }
+        if(Configs.getBoolean("eth.switch.top.buyyer") && !topBuyer.equals("zxkindevil")){
+            SoundPlayer.playMie("eth.switch.top.buyyer");
+        }
+    }
+
+    private int deallife(Document sellpage) {
+        Elements elem = sellpage.getElementsByClass("live-count");
+        return Integer.valueOf(elem.text().replaceAll(",",""));
     }
 
     private void notityPrice(BigDecimal sellPrice, BigDecimal bugPrice) {
@@ -44,10 +61,10 @@ public class ETHPriceHandler {
             SoundPlayer.playMie();
         }
         if (bugPrice.compareTo(new BigDecimal(Configs.getString("eth.buyprice.lt.notify"))) <= 0) {
-            SoundPlayer.playMie();
+            SoundPlayer.playMie("eth.buyprice.lt.notify");
         }
         if (sellPrice.subtract(bugPrice).compareTo(new BigDecimal(Configs.getString("switch.eth.open.price.diff"))) >= 0) {
-            SoundPlayer.playMie();
+            SoundPlayer.playMie("switch.eth.open.price.diff");
         }
     }
 

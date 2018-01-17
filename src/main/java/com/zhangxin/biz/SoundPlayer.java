@@ -26,6 +26,11 @@ public class SoundPlayer {
         play(mie);
     }
 
+    public static void playMie(String key) {
+        System.out.println("notify mie " + key);
+        play(mie);
+    }
+
     private static void play(String path) {
         try {
             File file = new File(path); // 获取文件，传入的参数为String类型，文件的路径
