@@ -41,7 +41,7 @@ public class ETHPriceHandler {
 
         //===
         if (lifeaccount >= Configs.getInt("total.life.count")) {
-            SoundPlayer.playMie();
+            SoundPlayer.playMie("total.life.count");
         }
         if (Configs.getBoolean("eth.switch.top.seller") && !topSeller.equals("zxkindevil")) {
             SoundPlayer.playMie("eth.switch.top.seller");
@@ -58,7 +58,7 @@ public class ETHPriceHandler {
 
     private void notityPrice(BigDecimal sellPrice, BigDecimal bugPrice) {
         if (sellPrice.compareTo(new BigDecimal(Configs.getString("eth.sellprice.gt.notify"))) >= 0) {
-            SoundPlayer.playMie();
+            SoundPlayer.playMie("eth.sellprice.gt.notify");
         }
         if (bugPrice.compareTo(new BigDecimal(Configs.getString("eth.buyprice.lt.notify"))) <= 0) {
             SoundPlayer.playMie("eth.buyprice.lt.notify");
