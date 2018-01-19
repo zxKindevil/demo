@@ -18,12 +18,24 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <org.springframework.version>4.3.7.RELEASE</org.springframework.version>
-        <com.fasterxml.jackson.core.version>2.5.2</com.fasterxml.jackson.core.version>
+        <com.fasterxml.jackson.core.version>2.7.5</com.fasterxml.jackson.core.version>
         <org.slf4j.version>1.7.5</org.slf4j.version>
         <ch.qos.logback>1.2.3</ch.qos.logback>
     </properties>
 
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient -->
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>fluent-hc</artifactId>
+            <version>4.5.4</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.4</version>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
