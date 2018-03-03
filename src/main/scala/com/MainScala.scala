@@ -5,12 +5,7 @@ package com
   *         Created on 18/3/1.
   */
 object MainScala {
-  def main(args: Array[String]) {
-    println("r")
-  }
-}
+  def main(args: Array[String]): Unit = {
 
-trait Iterator[A] {
-  def hasNext: Boolean
-  def next(): A
+  }
 }
