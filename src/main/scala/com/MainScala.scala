@@ -1,6 +1,7 @@
 package com
 
 import scala.collection.generic.CanBuildFrom
+import scala.collection.mutable
 import scala.collection.mutable.BitSet
 
 /**
@@ -15,6 +16,8 @@ object MainScala {
       def apply(from: Set[Long]) = this.apply();
 
       def apply() = BitSet.newBuilder
+
+      mutable.HashSet.newBuilder
     }
 
 
