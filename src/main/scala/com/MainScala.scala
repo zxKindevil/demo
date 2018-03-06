@@ -1,26 +1,30 @@
 package com
 
 import scala.collection.generic.CanBuildFrom
-import scala.collection.mutable
-import scala.collection.mutable.BitSet
+import scala.collection.{BitSet, mutable}
 
 /**
   * @author zhangxin
   *         Created on 18/3/1.
   */
 object MainScala {
-  private val list: List[Int] = List(1, 2, 3, 4)
-
   def main(args: Array[String]): Unit = {
-    val setToBitSetBuilder = new CanBuildFrom[Set[Long], Int, BitSet] {
-      def apply(from: Set[Long]) = this.apply();
+    val builder: mutable.SetBuilder[Int, Set[Int]] = new mutable.SetBuilder(Set())
+    builder.+=(1)
+    builder.+=(2)
+    builder.+=(3)
 
-      def apply() = BitSet.newBuilder
+    val result: Set[Int] = builder.result()
 
-      mutable.HashSet.newBuilder
+    Set(1, 2, 3) map (_ * 2)
+
+    val hashSetBuilder = new CanBuildFrom[Set[Int], Int, mutable.HashSet[Int]] {
+      override def apply(from: Set[Int]): mutable.Builder[Int, mutable.HashSet[Int]] = apply()
+
+      override def apply(): mutable.Builder[Int, mutable.HashSet[Int]] = mutable.HashSet.newBuilder[Int]
     }
 
-
+    println(Set(1, 2, 3).map(_ * 2)(hashSetBuilder).getClass)
   }
 }
 
