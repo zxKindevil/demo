@@ -3,7 +3,6 @@ package com
 import java.io.File
 import java.util
 
-import com.fasterxml.jackson.databind.{JsonNode, ObjectMapper}
 import com.google.common.base.Charsets
 import com.google.common.io.Files
 
@@ -19,17 +18,16 @@ object MainScala {
   val pattern = "[a-zA-Z0-9-]+".r
 
   def main(args: Array[String]): Unit = {
-    val jsonNode: JsonNode = new ObjectMapper().readTree("{\"productId\"    :\"110\",\"orderFrom\":\"CHECKUP_MINA\",\"checkupDate\":\"2018-03-09\",\"userInfo\":{\"patientName\":\"苟娇\",\"idCardNo\":\"513701199709222224\",\"phone\":\"15011013389\"},\"_\":1520303280553}")
-    println(jsonNode.get("orderFrom").textValue())
+//    println((List(1, 2, 3) map (x => (x + 1, x + 2))).toMap)
 
-    test()
+        test()
   }
 
   def test(): Unit = {
     val file: File = new File("/Users/zhangxin/temp.txt")
     val lines: util.List[String] = Files.readLines(file, Charsets.UTF_8)
 
-    lines.toList forEach (x => {
+    println(lines.toList.map(x =>
       if (x.startsWith("[2018-03-06")) {
         val openidRegex = "\\[([a-zA-Z0-9-_]+)\\]".r
         val matches: Iterator[Match] = openidRegex findAllMatchIn x
@@ -37,8 +35,17 @@ object MainScala {
         //        println(openid)
 
         val name: String = ("patientName\":\"(\\W+)\",".r() findAllMatchIn x).toList.apply(0).group(1)
+
+        return (openid, name)
       }
-    })
+      else ("a", "b")
+    ).toMap)
+  }
+
+  def testb(): Unit = {
+    //    val list = List("this", "maps", "string", "to", "length") map { s => (s, s.length) }
+    //    val list = List("this", "is", "a", "bunch", "of", "strings")
+    //    val string2Length = Map(list map { s => (s, s.length) }: _*)
   }
 }
 
