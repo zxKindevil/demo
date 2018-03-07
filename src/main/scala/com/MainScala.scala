@@ -18,9 +18,9 @@ object MainScala {
   val pattern = "[a-zA-Z0-9-]+".r
 
   def main(args: Array[String]): Unit = {
-//    println((List(1, 2, 3) map (x => (x + 1, x + 2))).toMap)
+    //    println((List(1, 2, 3) map (x => (x + 1, x + 2))).toMap)
 
-        test()
+    test()
   }
 
   def test(): Unit = {
