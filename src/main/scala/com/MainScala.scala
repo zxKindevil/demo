@@ -1,30 +1,26 @@
 package com
 
-import scala.collection.generic.CanBuildFrom
-import scala.collection.{BitSet, mutable}
-
 /**
   * @author zhangxin
   *         Created on 18/3/1.
   */
 object MainScala {
   def main(args: Array[String]): Unit = {
-    val builder: mutable.SetBuilder[Int, Set[Int]] = new mutable.SetBuilder(Set())
-    builder.+=(1)
-    builder.+=(2)
-    builder.+=(3)
+    val arr = Array(1, 9, 3, 4, 5, 6)
 
-    val result: Set[Int] = builder.result()
+    println(twoSum(arr.sorted, 9).toList)
+  }
 
-    Set(1, 2, 3) map (_ * 2)
+  def twoSum(nums: Array[Int], target: Int): Array[Int] = {
+    val sorted = nums.sorted
 
-    val hashSetBuilder = new CanBuildFrom[Set[Int], Int, mutable.HashSet[Int]] {
-      override def apply(from: Set[Int]): mutable.Builder[Int, mutable.HashSet[Int]] = apply()
-
-      override def apply(): mutable.Builder[Int, mutable.HashSet[Int]] = mutable.HashSet.newBuilder[Int]
+    for (i <- 1 to 10) {
+      for (j <- 2 to 10) {
+        println(s"$i $j")
+      }
     }
 
-    println(Set(1, 2, 3).map(_ * 2)(hashSetBuilder).getClass)
+    new Array[Int](1)
   }
 }
 
