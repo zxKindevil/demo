@@ -37,13 +37,13 @@ public class AppServer implements InitializingBean {
     public void afterPropertiesSet() throws Exception {
 
 
-        System.out.println("============= spring boot init ===========");
-        //同步加载配置文件
-        Configs.initListenConfig();
-        //抓取报价
-        executors.submit(dealETHPrice());
-
-        executors.submit(dealOrderNotify());
+//        System.out.println("============= spring boot init ===========");
+//        //同步加载配置文件
+//        Configs.initListenConfig();
+//        //抓取报价
+//        executors.submit(dealETHPrice());
+//
+//        executors.submit(dealOrderNotify());
     }
 
     public Runnable dealOrderNotify() {
