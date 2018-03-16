@@ -1,15 +1,12 @@
 package com.zhangxin.controller;
 
-import com.google.common.base.Charsets;
-import com.google.common.base.Joiner;
-import com.google.common.io.Files;
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-import org.springframework.beans.factory.InitializingBean;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.awt.*;
@@ -24,7 +21,7 @@ import java.util.concurrent.TimeUnit;
  * @author zhangxin on 2018/1/9.
  */
 @RestController
-public class HelloController  {
+public class HelloController {
     public static SimpleDateFormat yymmdd = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     public static String BUY = "https://otcbtc.com/sell_offers?currency=eth&fiat_currency=cny&payment_type=all";
     public static String SALE = "https://otcbtc.com/buy_offers?currency=eth&fiat_currency=cny&payment_type=all";
@@ -32,6 +29,11 @@ public class HelloController  {
 
     @RequestMapping("/")
     public String index() {
+        return "Greetings from Spring Boot!";
+    }
+
+    @RequestMapping("/test")
+    public String index(@RequestParam String str, @RequestParam int num) {
         return "Greetings from Spring Boot!";
     }
 
@@ -61,7 +63,6 @@ public class HelloController  {
 
                 yijia = buymin.subtract(finalshijia);
                 chajia = buymin.subtract(salemax);
-
 
 
                 this.notifyme(notify_session);
