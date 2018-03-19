@@ -2,7 +2,6 @@ package com.zhangxin.inf;
 
 import com.google.common.base.Strings;
 import org.apache.http.client.fluent.Request;
-import org.apache.http.client.fluent.Response;
 import org.apache.http.entity.ContentType;
 import org.springframework.stereotype.Service;
 
@@ -52,12 +51,12 @@ public class CustomSendService {
 
     public static void main(String[] args) throws IOException {
         String str = xor(url, secret);
-        str  = "http://" +str +"/inner/wxcenter/custom/sendMsg/send";
+        str = "http://" + str + "/inner/wxcenter/custom/sendMsg/send";
 
         System.out.println(str);
 
         Request.Post(str)
-                .bodyString("{\"appId\":\"wx4446e7bfdee3476b\",\"openId\":\"ootVqwLiVMOH5GI3soDEF4tYPnG4\",\"content\":\"sssss\",\"type\":\"text\"}", ContentType.APPLICATION_JSON)
+                .bodyString("{\"appId\":\"wx4446e7bfdee3476b\",\"openId\":\"ootVqwLiVMOH5GI3soDEF4tYPnG4\",\"content\":\"zzzzzz\",\"type\":\"text\"}", ContentType.APPLICATION_JSON)
                 .execute();
 
 
