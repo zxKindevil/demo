@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
@@ -33,7 +34,7 @@ public class HelloController {
     }
 
     @RequestMapping("/test")
-    public String index(@RequestParam String str, @RequestParam int num) {
+    public String index(HttpServletRequest request, @RequestParam String str, @RequestParam int num) {
         return "Greetings from Spring Boot!";
     }
 
