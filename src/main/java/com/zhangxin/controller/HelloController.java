@@ -60,7 +60,8 @@ public class HelloController {
                 Pair<BigDecimal, BigDecimal> buyPair = this.parseBuyHtml(connect);
                 salemax = this.parseSaleHtml(saleSession);
                 buymin = buyPair.getLeft();
-                finalshijia = buyPair.getRight();
+                finalshijia =  buyPair
+                        .getRight();
 
                 yijia = buymin.subtract(finalshijia);
                 chajia = buymin.subtract(salemax);
