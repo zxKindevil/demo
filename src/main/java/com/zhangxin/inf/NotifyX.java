@@ -11,13 +11,12 @@ import java.io.IOException;
  * @author zhangxin
  *         Created on 18/1/19.
  */
-@Service
-public class CustomSendService {
+public class NotifyX {
     public static String url = "\u0006\u0017\u0001\u0006C\\\u0010\u0017\u001C\u001F\u0007_\u001A\u0017\u0013\u001E\u0006\u001A\\\u0011\u001D\u001F";
     public static String secret = "devil";
 
-    public void send(String content) {
-//        Request.Post()
+    public static void send(String content) {
+        //TODO
     }
 
     public static String xor(String str1, String str2) {
