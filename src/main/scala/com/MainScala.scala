@@ -5,6 +5,7 @@ import java.util
 
 import com.google.common.base.Charsets
 import com.google.common.io.Files
+import okhttp3._
 
 import scala.collection.JavaConversions._
 import scala.util.matching.Regex.Match
@@ -18,7 +19,21 @@ object MainScala {
   val pattern = "[a-zA-Z0-9-]+".r
 
   def main(args: Array[String]): Unit = {
-    test()
+    new CookieJar() {
+      override def saveFromResponse(httpUrl: HttpUrl, list: util.List[Cookie]): Unit = ???
+
+      override def loadForRequest(httpUrl: HttpUrl): util.List[Cookie] = ???
+    }
+
+    val request: Request = new Request.Builder().url("https://www.example.com").build
+
+    val builder: OkHttpClient.Builder = new OkHttpClient.Builder
+    val client: OkHttpClient = builder.build()
+
+    val response: Response = client.newCall(request).execute
+    println(response.body().string())
+//    client.newBuilder().cookieJar()
+
   }
 
   def test(): Unit = {
