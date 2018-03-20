@@ -4,6 +4,7 @@ import com.zhangxin.biz.Configs;
 import com.zhangxin.biz.ConnectionHolder;
 import com.zhangxin.biz.ETHPriceHandler;
 import com.zhangxin.biz.OrderNotifyHandler;
+import com.zhangxin.restapi.HttpWrapper;
 import com.zhangxin.utils.Constant;
 import com.zhangxin.utils.SleepUtils;
 import org.jsoup.Jsoup;
@@ -12,14 +13,8 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.Properties;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
 
 /**
  * @author zhangxin on 2018/1/14.
@@ -32,24 +27,38 @@ public class AppServer implements InitializingBean {
     private ETHPriceHandler handler;
     @Resource
     private OrderNotifyHandler orderNotifyHandler;
+    @Resource
+    private HttpWrapper httpWrapper;
 
     @Override
     public void afterPropertiesSet() throws Exception {
 
 
-//        System.out.println("============= spring boot init ===========");
-//        //同步加载配置文件
-//        Configs.initListenConfig();
-//        //抓取报价
+        System.out.println("============= spring boot init ===========");
+        //同步加载配置文件
+        Configs.initListenConfig();
+        //抓取报价
+
+        executors.submit(dealRestBi());
+
 //        executors.submit(dealETHPrice());
 //
 //        executors.submit(dealOrderNotify());
     }
 
-    public Runnable dealOrderNotify() {
-        return ()->{
+    public Runnable dealRestBi() {
+        return () -> {
             while (!Thread.interrupted()) {
-                if(Configs.getBoolean("switch.open.order.notify")){
+                httpWrapper.dealeos();
+                SleepUtils.sleepRandomSec(3, 1);
+            }
+        };
+    }
+
+    public Runnable dealOrderNotify() {
+        return () -> {
+            while (!Thread.interrupted()) {
+                if (Configs.getBoolean("switch.open.order.notify")) {
                     try {
                         Document orderNotifyPage = Jsoup.connect(Constant.ORDER_NOTIFYS)
                                 .userAgent("Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36")
