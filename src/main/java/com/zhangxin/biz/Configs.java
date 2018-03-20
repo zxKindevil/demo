@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class Configs {
     //TODO 整合spring value
-    public static String configPath = Configs.class.getResource("/configs/").getPath() + "config.properties";
+    public static String configPath = Configs.class.getResource("/").getPath() + "config.properties";
     public static String restbi = Configs.class.getResource("/configs/").getPath() + "restbi.properties";
 
     private static volatile Properties properties = null;
@@ -40,8 +40,8 @@ public class Configs {
         try {
             scheduledThreadPool.scheduleAtFixedRate(
                     Configs::refresh,
-                    1,
-                    1,
+                    20,
+                    20,
                     TimeUnit.SECONDS);
             refresh();
         } catch (Exception e) {
@@ -57,9 +57,9 @@ public class Configs {
             temp.load(inStream);
             FileInputStream inStream1 = new FileInputStream(new File(restbi));
             temp.load(inStream1);
+            properties = temp;
             inStream.close();
             inStream1.close();
-            properties = temp;
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -70,6 +70,8 @@ public class Configs {
             Properties temp = new Properties();
             temp.load(new FileInputStream(new File(configPath)));
             temp.load(new FileInputStream(new File(restbi)));
+            System.out.println(temp.getProperty("total.life.count"));
+            System.out.println(temp.getProperty("test.bi"));
         } catch (IOException e) {
             e.printStackTrace();
         }
