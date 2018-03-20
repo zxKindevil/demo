@@ -1,7 +1,11 @@
 package com.zhangxin.inf;
 
 import com.google.common.base.Strings;
-import org.apache.http.client.fluent.Request;
+import com.zhangxin.restapi.HttpWrapper;
+import com.zhangxin.restapi.HttpWrapper$;
+import okhttp3.MediaType;
+import okhttp3.Request;
+import okhttp3.RequestBody;
 import org.apache.http.entity.ContentType;
 
 import java.io.IOException;
@@ -14,16 +18,16 @@ public class NotifyX {
     public static String url = "\u0006\u0017\u0001\u0006C\\\u0010\u0017\u001C\u001F\u0007_\u001A\u0017\u0013\u001E\u0006\u001A\\\u0011\u001D\u001F";
     public static String secret = "devil";
 
+
     public static void send(String content) {
-        String str = xor(url, secret);
-        str = "http://" + str + "/inner/wxcenter/custom/sendMsg/send";
+        String url = xor(NotifyX.url, secret);
+        url = "http://" + url + "/inner/wxcenter/custom/sendMsg/send";
 
         String json = "{\"appId\":\"wx4446e7bfdee3476b\",\"openId\":\"ootVqwLiVMOH5GI3soDEF4tYPnG4\",\"content\":\"zzzzzz\",\"type\":\"text\"}";
         json = json.replaceAll("zzzzzz", content);
         try {
-            Request.Post(str)
-                    .bodyString(json, ContentType.APPLICATION_JSON)
-                    .execute();
+            Request request = new Request.Builder().url(url).method("POST", RequestBody.create(MediaType.parse("application/json; charset=utf-8"), json)).build();
+            HttpWrapper$.MODULE$.httpClient().newCall(request).execute();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -59,16 +63,7 @@ public class NotifyX {
     }
 
     public static void main(String[] args) throws IOException {
-        String str = xor(url, secret);
-        str = "http://" + str + "/inner/wxcenter/custom/sendMsg/send";
-
-        System.out.println(str);
-
-        Request.Post(str)
-                .bodyString("{\"appId\":\"wx4446e7bfdee3476b\",\"openId\":\"ootVqwLiVMOH5GI3soDEF4tYPnG4\",\"content\":\"zzzzzz\",\"type\":\"text\"}", ContentType.APPLICATION_JSON)
-                .execute();
-
-
+        NotifyX.send("test");
     }
 
 }

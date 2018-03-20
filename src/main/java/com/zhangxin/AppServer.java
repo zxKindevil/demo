@@ -52,9 +52,12 @@ public class AppServer implements InitializingBean {
         return () -> {
             while (!Thread.interrupted()) {
                 try {
+                    System.out.println("go");
                     priceNotifyer.deal();
+                    System.out.println("done");
                 } catch (Exception e) {
                     e.printStackTrace();
+                    System.out.println(e.getMessage());
                 }
                 SleepUtils.sleepRandomSec(3, 1);
             }
