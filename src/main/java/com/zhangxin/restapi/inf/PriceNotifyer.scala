@@ -50,7 +50,7 @@ class PriceNotifyer(@Resource restAPI: RestAPI) {
   }
 
   def notifyPercenter(percent: Double) = {
-    if (Math.abs(percent) > 0.1 && percentLimiter.tryAcquire(1)) {
+    if (Math.abs(percent) > Configs.getDouble("rest.eos.price.max.percent") && percentLimiter.tryAcquire(1)) {
       NotifyX.send(f"$percent exit percent")
     }
     //    if(percent >= Configs.getDouble("rest"))
