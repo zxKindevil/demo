@@ -26,8 +26,8 @@ class HttpWrapper {
     val price: Float = node.get(0).floatValue()
 
     println(price)
-    if (price > HttpWrapper.max) NotifyX.send("max")
-    if (price < HttpWrapper.min) NotifyX.send("min")
+    if (price >= HttpWrapper.max) NotifyX.send("max")
+    if (price <= HttpWrapper.min) NotifyX.send("min")
   }
 }
 
@@ -49,8 +49,8 @@ object HttpWrapper {
     //    val node: JsonNode = jsonNode.get("tick").get("ask")
     //    val price: Float = node.get(0).floatValue()
 
-    new HttpWrapper().dealeos
-
+//    new HttpWrapper().dealeos
+    NotifyX.send("min")
   }
 
 

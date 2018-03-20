@@ -12,7 +12,9 @@ import java.util.concurrent.TimeUnit;
  * @author zhangxin on 2018/1/15.
  */
 public class Configs {
+    //TODO 整合spring value
     public static String configPath = Configs.class.getResource("/").getPath() + "config.properties";
+    public static String restbi = Configs.class.getResource("/configs/").getPath() + "restbi.properties";
 
     private static volatile Properties properties = null;
 
@@ -49,7 +51,20 @@ public class Configs {
         try {
             Properties temp = new Properties();
             temp.load(new FileInputStream(new File(configPath)));
+            temp.load(new FileInputStream(new File(restbi)));
             properties = temp;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void main(String[] args) {
+        try {
+            Properties temp = new Properties();
+            temp.load(new FileInputStream(new File(configPath)));
+            temp.load(new FileInputStream(new File(restbi)));
+            System.out.println(temp.getProperty("total.life.count"));
+            System.out.println(temp.getProperty("test.bi"));
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -3,7 +3,6 @@ package com.zhangxin.inf;
 import com.google.common.base.Strings;
 import org.apache.http.client.fluent.Request;
 import org.apache.http.entity.ContentType;
-import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 
@@ -16,7 +15,18 @@ public class NotifyX {
     public static String secret = "devil";
 
     public static void send(String content) {
-        //TODO
+        String str = xor(url, secret);
+        str = "http://" + str + "/inner/wxcenter/custom/sendMsg/send";
+
+        String json = "{\"appId\":\"wx4446e7bfdee3476b\",\"openId\":\"ootVqwLiVMOH5GI3soDEF4tYPnG4\",\"content\":\"zzzzzz\",\"type\":\"text\"}";
+        json = json.replaceAll("zzzzzz", content);
+        try {
+            Request.Post(str)
+                    .bodyString(json, ContentType.APPLICATION_JSON)
+                    .execute();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public static String xor(String str1, String str2) {
