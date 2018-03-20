@@ -5,6 +5,7 @@ import com.zhangxin.biz.ConnectionHolder;
 import com.zhangxin.biz.ETHPriceHandler;
 import com.zhangxin.biz.OrderNotifyHandler;
 import com.zhangxin.restapi.HttpWrapper;
+import com.zhangxin.restapi.inf.PriceNotifyer;
 import com.zhangxin.utils.Constant;
 import com.zhangxin.utils.SleepUtils;
 import org.jsoup.Jsoup;
@@ -29,6 +30,8 @@ public class AppServer implements InitializingBean {
     private OrderNotifyHandler orderNotifyHandler;
     @Resource
     private HttpWrapper httpWrapper;
+    @Resource
+    private PriceNotifyer priceNotifyer;
 
     @Override
     public void afterPropertiesSet() throws Exception {
@@ -49,7 +52,11 @@ public class AppServer implements InitializingBean {
     public Runnable dealRestBi() {
         return () -> {
             while (!Thread.interrupted()) {
-                httpWrapper.dealeos();
+                try {
+                    priceNotifyer.deal();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 SleepUtils.sleepRandomSec(3, 1);
             }
         };
