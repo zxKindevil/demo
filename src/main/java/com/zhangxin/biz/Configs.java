@@ -32,6 +32,10 @@ public class Configs {
         return Integer.valueOf((String) properties.get(key));
     }
 
+    public static double getDouble(String key) {
+        return Double.valueOf((String) properties.get(key));
+    }
+
     public static void initListenConfig() {
         try {
             scheduledThreadPool.scheduleAtFixedRate(
