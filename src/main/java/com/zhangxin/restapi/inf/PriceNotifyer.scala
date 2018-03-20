@@ -18,8 +18,8 @@ import org.springframework.stereotype.Service
   */
 @Service
 class PriceNotifyer(@Resource restAPI: RestAPI) {
-  private val limiter: RateLimiter = RateLimiter.create(1)
-  private val percentLimiter: RateLimiter = RateLimiter.create(1)
+  private val limiter: RateLimiter = RateLimiter.create(0.1)
+  private val percentLimiter: RateLimiter = RateLimiter.create(0.2)
 
   private val deque: util.ArrayDeque[Double] = Queues.newArrayDeque()
   private val initTime: Long = System.currentTimeMillis()
@@ -59,6 +59,11 @@ class PriceNotifyer(@Resource restAPI: RestAPI) {
 
 object PriceNotifyer {
   def main(args: Array[String]) {
-    NotifyX.send("test")
+    val create: RateLimiter = RateLimiter.create(0.1)
+
+    while (true) {
+      create.acquire()
+      println("out")
+    }
   }
 }
