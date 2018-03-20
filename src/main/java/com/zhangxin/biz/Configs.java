@@ -53,8 +53,12 @@ public class Configs {
     public static void refresh() {
         try {
             Properties temp = new Properties();
-            temp.load(new FileInputStream(new File(configPath)));
-            temp.load(new FileInputStream(new File(restbi)));
+            FileInputStream inStream = new FileInputStream(new File(configPath));
+            temp.load(inStream);
+            FileInputStream inStream1 = new FileInputStream(new File(restbi));
+            temp.load(inStream1);
+            inStream.close();
+            inStream1.close();
             properties = temp;
         } catch (IOException e) {
             e.printStackTrace();
