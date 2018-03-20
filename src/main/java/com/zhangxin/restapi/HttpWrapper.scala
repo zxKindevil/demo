@@ -4,7 +4,7 @@ import java.util
 import java.util.concurrent.{ConcurrentHashMap, TimeUnit}
 
 import com.fasterxml.jackson.databind.JsonNode
-import com.zhangxin.inf.NotifyX
+import com.zhangxin.restapi.api.NotifyX
 import com.zhangxin.utils.JsonUtil
 import okhttp3.{Cookie, OkHttpClient, Request}
 import org.springframework.stereotype.Service

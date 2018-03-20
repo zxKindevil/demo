@@ -9,8 +9,7 @@ import com.fasterxml.jackson.databind.JsonNode
 import com.google.common.collect.Queues
 import com.google.common.util.concurrent.RateLimiter
 import com.zhangxin.biz.Configs
-import com.zhangxin.inf.NotifyX
-import com.zhangxin.restapi.api.RestAPI
+import com.zhangxin.restapi.api.{NotifyX, RestAPI}
 import org.springframework.stereotype.Service
 
 /**
@@ -42,7 +41,7 @@ class PriceNotifyer(@Resource restAPI: RestAPI) {
 
   def dealPercent(price: Double): Double = {
     if (new Date().getTime - initTime > TimeUnit.SECONDS.toMillis(60)) {
-      val first: Double = deque.getFirst
+      val first: Double = deque.removeFirst()
 
       val percent: Double = (price - first) / first * 100
 

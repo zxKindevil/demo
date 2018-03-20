@@ -1,12 +1,10 @@
-package com.zhangxin.inf;
+package com.zhangxin.restapi.api;
 
 import com.google.common.base.Strings;
-import com.zhangxin.restapi.HttpWrapper;
 import com.zhangxin.restapi.HttpWrapper$;
 import okhttp3.MediaType;
 import okhttp3.Request;
 import okhttp3.RequestBody;
-import org.apache.http.entity.ContentType;
 
 import java.io.IOException;
 
