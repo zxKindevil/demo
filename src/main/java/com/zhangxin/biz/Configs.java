@@ -43,7 +43,6 @@ public class Configs {
                     2,
                     2,
                     TimeUnit.SECONDS);
-
             refresh();
         } catch (Exception e) {
             e.printStackTrace();
@@ -57,6 +56,8 @@ public class Configs {
             temp.load(new FileInputStream(new File(configPath)));
             temp.load(new FileInputStream(new File(restbi)));
             properties = temp;
+            System.out.println(configPath);
+            System.out.println(temp);
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -16,6 +16,7 @@ import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author zhangxin on 2018/1/14.
@@ -42,7 +43,12 @@ public class AppServer implements InitializingBean {
         Configs.initListenConfig();
         //抓取报价
 
-        executors.submit(dealRestBi());
+        while (true) {
+            System.out.println(Configs.getString("total.life.count"));
+            TimeUnit.SECONDS.sleep(1);
+        }
+
+//        executors.submit(dealRestBi());
 
 //        executors.submit(dealETHPrice());
 //
