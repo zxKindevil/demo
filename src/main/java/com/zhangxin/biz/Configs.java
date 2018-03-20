@@ -40,8 +40,8 @@ public class Configs {
         try {
             scheduledThreadPool.scheduleAtFixedRate(
                     Configs::refresh,
-                    2,
-                    2,
+                    1,
+                    1,
                     TimeUnit.SECONDS);
             refresh();
         } catch (Exception e) {

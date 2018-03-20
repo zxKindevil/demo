@@ -39,16 +39,9 @@ public class AppServer implements InitializingBean {
 
 
         System.out.println("============= spring boot init ===========");
-        //同步加载配置文件
         Configs.initListenConfig();
-        //抓取报价
 
-        while (true) {
-            System.out.println(Configs.getString("total.life.count"));
-            TimeUnit.SECONDS.sleep(1);
-        }
-
-//        executors.submit(dealRestBi());
+        executors.submit(dealRestBi());
 
 //        executors.submit(dealETHPrice());
 //
