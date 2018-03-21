@@ -8,6 +8,7 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 
 /**
+ * 自己通过aqs实现锁
  * @author zhangxin
  *         Created on 18/3/21.
  */
