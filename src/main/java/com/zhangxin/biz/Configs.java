@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class Configs {
     //TODO 整合spring value
-    public static String configPath = Configs.class.getResource("/").getPath() + "config.properties";
+    public static String configPath = Configs.class.getResource("/configs/").getPath() + "config.properties";
     public static String restbi = Configs.class.getResource("/configs/").getPath() + "restbi.properties";
 
     private static volatile Properties properties = null;
