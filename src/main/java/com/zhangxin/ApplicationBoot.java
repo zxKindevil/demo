@@ -13,7 +13,7 @@ import java.util.Arrays;
  * @author zhangxin on 2018/1/9.
  */
 @SpringBootApplication
-@ComponentScan(basePackages={"com"})
+@ComponentScan(basePackages = {"com"})
 public class ApplicationBoot {
 
     public static void main(String[] args) {

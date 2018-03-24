@@ -1,6 +1,6 @@
 package com.zhangxin;
 
-import com.google.common.collect.Queues;
+import com.zhangxin.binance.PriceHandler;
 import com.zhangxin.biz.Configs;
 import com.zhangxin.biz.ConnectionHolder;
 import com.zhangxin.biz.ETHPriceHandler;
@@ -13,12 +13,11 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.stereotype.Component;
+import sun.java2d.loops.ProcessPath;
 
 import javax.annotation.Resource;
-import java.util.ArrayDeque;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
 
 /**
  * @author zhangxin on 2018/1/14.
@@ -35,19 +34,36 @@ public class AppServer implements InitializingBean {
     private HttpWrapper httpWrapper;
     @Resource
     private PriceNotifyer priceNotifyer;
+    @Resource
+    private PriceHandler pricehandler;
 
     @Override
     public void afterPropertiesSet() throws Exception {
-
-
         System.out.println("============= spring boot init ===========");
         Configs.initListenConfig();
 
-        executors.submit(dealRestBi());
+        executors.submit(this.dealBinance());
+
+
+//        executors.submit(dealRestBi());
 
 //        executors.submit(dealETHPrice());
 //
 //        executors.submit(dealOrderNotify());
+    }
+
+    private Runnable dealBinance() {
+        return () -> {
+            while (!Thread.interrupted()) {
+                try {
+                    pricehandler.deal("ONTBTC");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    System.out.println(e.getMessage());
+                }
+                SleepUtils.sleepRandomSec(3, 1);
+            }
+        };
     }
 
     public Runnable dealRestBi() {
