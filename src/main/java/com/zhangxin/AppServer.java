@@ -56,7 +56,7 @@ public class AppServer implements InitializingBean {
         return () -> {
             while (!Thread.interrupted()) {
                 try {
-                    pricehandler.deal("ONTBTC");
+                    pricehandler.deal("KNCBTC");
                 } catch (Exception e) {
                     e.printStackTrace();
                     System.out.println(e.getMessage());

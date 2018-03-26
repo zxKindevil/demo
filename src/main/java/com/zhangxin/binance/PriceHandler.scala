@@ -8,6 +8,7 @@ import com.google.common.collect.Queues
 import com.google.common.util.concurrent.RateLimiter
 import com.zhangxin.biz.Configs
 import com.zhangxin.restapi.api.NotifyX
+import org.slf4j.{Logger, LoggerFactory}
 import org.springframework.stereotype.Service
 
 /**
@@ -16,8 +17,10 @@ import org.springframework.stereotype.Service
   */
 @Service
 class PriceHandler(@Resource binanceApi: BinanceApi) {
+  private val logger: Logger = LoggerFactory.getLogger(this.getClass)
+
   private val limiter: RateLimiter = RateLimiter.create(0.1)
-  private val percentLimiter: RateLimiter = RateLimiter.create(0.2)
+  private val percentLimiter: RateLimiter = RateLimiter.create(0.04)
 
   private val deque: java.util.ArrayDeque[Double] = Queues.newArrayDeque()
   private val initTime: Long = System.currentTimeMillis()
@@ -33,7 +36,7 @@ class PriceHandler(@Resource binanceApi: BinanceApi) {
 
     this.notifyPercenter(percent, coin)
 
-    println(f"$coin $price $percent%.3f")
+    logger.info(f"$coin $price $percent%.3f")
   }
 
   def dealPercent(price: Double, coin: String): Double = {

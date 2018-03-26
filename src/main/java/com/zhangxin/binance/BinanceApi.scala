@@ -1,5 +1,8 @@
 package com.zhangxin.binance
 
+import java.sql.Timestamp
+import java.time.LocalDateTime
+import java.util.Date
 import java.util.concurrent.TimeUnit
 
 import com.zhangxin.utils.JsonUtil
@@ -35,10 +38,15 @@ class BinanceApi {
 }
 
 object BinanceApi {
+
+  import java.time.format.DateTimeFormatter
+
+  val formatter: DateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
   val httpClient: OkHttpClient = new OkHttpClient.Builder().writeTimeout(5, TimeUnit.SECONDS).connectTimeout(5, TimeUnit.SECONDS).readTimeout(5, TimeUnit.SECONDS).build()
 
 
   def main(args: Array[String]): Unit = {
-    println(new BinanceApi().price("ONTBTC"))
+    println(Timestamp.valueOf(LocalDateTime.parse("2018-03-24 00:00:00", formatter)).getTime)
+    println(new Date(1521849600000L))
   }
 }
