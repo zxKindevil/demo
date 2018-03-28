@@ -31,8 +31,6 @@ public class AppServer implements InitializingBean {
     @Resource
     private OrderNotifyHandler orderNotifyHandler;
     @Resource
-    private HttpWrapper httpWrapper;
-    @Resource
     private PriceNotifyer priceNotifyer;
     @Resource
     private PriceHandler pricehandler;
