@@ -34,7 +34,7 @@ class PriceHandler(@Resource binanceApi: BinanceApi) {
 
     val percent: Double = this.dealPercent(price, coin)
 
-    this.notifyPercenter(percent, coin)
+    this.notifyPercenter(percent, coin, price)
 
     logger.info(f"$coin $price $percent%.3f")
   }
@@ -49,9 +49,9 @@ class PriceHandler(@Resource binanceApi: BinanceApi) {
     } else 0.0
   }
 
-  def notifyPercenter(percent: Double, coin: String) = {
+  def notifyPercenter(percent: Double, coin: String, price: Double) = {
     if (Math.abs(percent) > Configs.getDouble(s"binance.$coin.price.max.percent") && percentLimiter.tryAcquire(1)) {
-      NotifyX.send(f"$coin $percent exit percent")
+      NotifyX.send(f"$coin $percent exit percent price=$price")
     }
     //    if(percent >= Configs.getDouble("rest"))
   }
