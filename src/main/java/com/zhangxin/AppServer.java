@@ -54,7 +54,7 @@ public class AppServer implements InitializingBean {
         return () -> {
             while (!Thread.interrupted()) {
                 try {
-                    pricehandler.deal("TRXBTC");
+                    pricehandler.deal("BTCUSDT");
                 } catch (Exception e) {
                     e.printStackTrace();
                     System.out.println(e.getMessage());
