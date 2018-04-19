@@ -12,6 +12,7 @@
         http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
 ">
 
+
 	<!-- 使用注解的包，包括子集 -->
     <context:component-scan base-package="com.zhangxin" />
     
@@ -34,4 +35,6 @@
 			</props>
 		</property>
 	</bean>
+
+	<import resource="classpath:spring/config/spring-bean.xml"/>
 </beans>
