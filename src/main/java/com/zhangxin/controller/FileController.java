@@ -18,7 +18,7 @@ public class FileController {
 
     //单文件上传
     @RequestMapping(value = "/upload.do")
-    public String queryFileData(@RequestParam("uploadfile") CommonsMultipartFile file, HttpServletRequest request) {
+    public void queryFileData(@RequestParam("uploadfile") CommonsMultipartFile file, HttpServletRequest request) {
         // MultipartFile是对当前上传的文件的封装，当要同时上传多个文件时，可以给定多个MultipartFile参数(数组)
         if (!file.isEmpty()) {
             String type = file.getOriginalFilename().substring(
@@ -34,9 +34,9 @@ public class FileController {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            return "redirect:upload_ok.jsp";
+            System.out.println("okkkkkk");
         } else {
-            return "redirect:upload_error.jsp";
+            System.out.println("errr");
         }
     }
 }
