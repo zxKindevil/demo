@@ -10,10 +10,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.InputStream;
+import javax.servlet.http.HttpServletResponse;
+import java.io.*;
+import java.net.URLEncoder;
 import java.util.List;
 
 /**
@@ -47,6 +48,47 @@ public class FileController {
         } else {
             System.out.println("errr");
         }
+    }
+
+    @RequestMapping(value = "/download")
+    public String doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        //得到文件的全名
+        String fileName = request.getParameter("fileName");
+
+        //如果是中文数据，需要转码。
+        fileName = new String(fileName.getBytes("ISO8859-1"), "utf-8");
+
+        //得到保存文件的位置
+        String path = "~/temp/test/" + fileName;
+
+        //文件是通过文件名进行hashCode打散保存的，通过文件名拿到文件绝对路径
+        System.out.println(path);
+
+        //判断文件是否存在
+        File file = new File(path);
+        if (!file.exists()) {
+            request.setAttribute("message", "您要下载的资源不存在了！");
+            request.getRequestDispatcher("/message.jsp").forward(request, response);
+            return "err";
+        }
+
+        //读取该文件并把数据写给浏览器
+        FileInputStream inputStream = new FileInputStream(path);
+        byte[] bytes = new byte[1024];
+        int len = 0;
+        while ((len = inputStream.read(bytes)) > 0) {
+            response.getOutputStream().write(bytes, 0, len);
+        }
+
+        inputStream.close();
+
+
+        //设置消息头，告诉浏览器，这是下载的文件
+        String name = fileName;
+        response.setHeader("content-disposition", "attachment;filename=" + URLEncoder.encode(name, "UTF-8"));
+
+        return "success";
     }
 
     public void ssss(@RequestParam("uploadfile") CommonsMultipartFile file, HttpServletRequest request) {
