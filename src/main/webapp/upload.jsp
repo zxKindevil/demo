@@ -25,15 +25,10 @@
 <a href="<%=basePath%>download?fileName=1524304153223.csv">下载</a>
 
 <%--播放--%>
-<script type="text/javascript">
-    function getVideo(name) {
-        window.location.href = "<%=basePath%>play?filename=" + name;
-    }
-</script>
-<button id="btn" onclick="getVideo('ea48576f30be1669971699c09ad05c94');">播放</button>
-<audio id="mp3" src="${path}" autoplay="true" controls="true">
-</audio>
 
+<audio src="<%=basePath%>play/audio?filename=test.mp3" controls="controls">
+    Your browser does not support the audio tag.
+</audio>
 
 </body>
 </html>

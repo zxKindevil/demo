@@ -14,7 +14,7 @@ import java.io.OutputStream;
 @RequestMapping("/play")
 public class PlayController {
 
-    @RequestMapping(value = "audio")
+    @RequestMapping(value = "/audio")
     public ModelAndView getAudio(String filename, HttpServletRequest request, HttpServletResponse response) throws Exception {
         String path = "~/temp/test/" + filename;
         String range = request.getHeader("Range");
