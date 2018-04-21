@@ -26,8 +26,8 @@
 
 <%--播放--%>
 <script type="text/javascript">
-    function getVideo(id) {
-        window.location.href = "${pageContext.request.contextPath }/Test/getVideo.do?id=" + id;
+    function getVideo(name) {
+        window.location.href = "<%=basePath%>play?filename=" + name;
     }
 </script>
 <button id="btn" onclick="getVideo('ea48576f30be1669971699c09ad05c94');">播放</button>
