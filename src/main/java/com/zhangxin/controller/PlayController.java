@@ -29,7 +29,7 @@ public class PlayController {
         // 播放进度
         int count = 0;
         // 播放百分比
-        int percent = (int) (length * 0.4);
+        int percent = (int) (length * 1);
 
         int irange = Integer.parseInt(range);
         length = length - irange;
