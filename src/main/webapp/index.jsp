@@ -13,5 +13,7 @@
 </head>
 <body>
 <a href="<%=url%>temp/hello">SpringMVC</a>
+
+<a href="http://localhost:8080/upload.jsp">player</a>
 </body>
 </html>
