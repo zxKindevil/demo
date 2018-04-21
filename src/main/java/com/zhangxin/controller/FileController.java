@@ -4,6 +4,7 @@ import org.apache.commons.io.FileUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,6 +18,7 @@ public class FileController {
 
     //单文件上传
     @RequestMapping(value = "/upload.do")
+    @ResponseBody
     public void queryFileData(@RequestParam("uploadfile") CommonsMultipartFile file, HttpServletRequest request) {
         // MultipartFile是对当前上传的文件的封装，当要同时上传多个文件时，可以给定多个MultipartFile参数(数组)
         if (!file.isEmpty()) {
