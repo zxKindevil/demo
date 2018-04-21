@@ -20,5 +20,8 @@
     上传文件：<input type="file" name="uploadfile">
     <input type="submit" value="上传">
 </form>
+
+
+<a href="<%=basePath%>download?fileName=1524304153223.csv">下载</a>
 </body>
 </html>
