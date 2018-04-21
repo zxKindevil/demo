@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import javax.servlet.ServletException;
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
@@ -89,6 +90,32 @@ public class FileController {
         response.setHeader("content-disposition", "attachment;filename=" + URLEncoder.encode(name, "UTF-8"));
 
         return "success";
+    }
+
+    /**
+     * 视频流读取
+     */
+    @RequestMapping("/play")
+    public
+    @ResponseBody
+    void video(String filename, HttpServletResponse response) throws Exception {
+        String path = "~/temp/test/" + filename;
+        File file = new File(path);
+        FileInputStream in = new FileInputStream(file);
+        ServletOutputStream out = response.getOutputStream();
+        byte[] b = null;
+        while (in.available() > 0) {
+            if (in.available() > 10240) {
+                b = new byte[10240];
+            } else {
+                b = new byte[in.available()];
+            }
+            in.read(b, 0, b.length);
+            out.write(b, 0, b.length);
+        }
+        in.close();
+        out.flush();
+        out.close();
     }
 
     public void ssss(@RequestParam("uploadfile") CommonsMultipartFile file, HttpServletRequest request) {
