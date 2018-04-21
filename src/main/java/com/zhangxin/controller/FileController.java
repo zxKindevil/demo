@@ -8,7 +8,6 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
-import java.io.IOException;
 
 /**
  * 文件上传处理类
@@ -24,14 +23,16 @@ public class FileController {
             String type = file.getOriginalFilename().substring(
                     file.getOriginalFilename().indexOf("."));// 取文件格式后缀名
             String filename = System.currentTimeMillis() + type;// 取当前时间戳作为文件名
-            String path = request.getSession().getServletContext()
-                    .getRealPath("/upload/" + filename);// 存放位置
+//            String path = request.getSession().getServletContext()
+//                    .getRealPath("/upload/" + filename);// 存放位置
+
+            String path = "~/temp/test/" + filename;
             File destFile = new File(path);
+            System.out.println(path);
             try {
                 // FileUtils.copyInputStreamToFile()这个方法里对IO进行了自动操作，不需要额外的再去关闭IO流
-                FileUtils
-                        .copyInputStreamToFile(file.getInputStream(), destFile);// 复制临时文件到指定目录下
-            } catch (IOException e) {
+                FileUtils.copyInputStreamToFile(file.getInputStream(), destFile);// 复制临时文件到指定目录下
+            } catch (Exception e) {
                 e.printStackTrace();
             }
             System.out.println("okkkkkk");
