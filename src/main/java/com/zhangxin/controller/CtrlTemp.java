@@ -1,6 +1,5 @@
 package com.zhangxin.controller;
 
-import com.avenwu.annotation.PrintMe;
 import com.zhangxin.bean.TempBean;
 import com.zhangxin.service.TempService;
 import com.zhangxin.exception.TempException;
@@ -27,7 +26,6 @@ public class CtrlTemp {
 		return "temp";
 	}
 
-    @PrintMe
 	@RequestMapping(value="/hello",method=RequestMethod.POST)
 	public String helloPost(String name,HttpSession session,Model model){
 

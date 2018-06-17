@@ -1,6 +1,5 @@
 package com.zhangxin.service;
 
-import com.avenwu.annotation.PrintMe;
 import com.zhangxin.bean.User;
 import com.zhangxin.dao.UserDao;
 import org.slf4j.Logger;
@@ -17,7 +16,6 @@ public class UserService {
     @Resource
     UserDao userDao;
 
-    @PrintMe
     @Transactional
     public void test(boolean flag){
         userDao.insert(new User().setUserName("test01").setUserAge("1").setUserAddress("test"));
