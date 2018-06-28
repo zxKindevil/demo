@@ -1,5 +1,6 @@
 package com.dubbo.test;
 
+import com.benmu.mts.wx.center.controller.TestService;
 import com.dubbo.test.service.HelloService;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -16,8 +17,8 @@ public class ConsumerMain {
 
         System.out.println("start");
 
-        HelloService helloService = (HelloService) context.getBean("helloService");
-        System.out.println(helloService.say());
+        TestService testService = (TestService) context.getBean("testService");
+        System.out.println(testService.deal("test dubbo sss"));
 
     }
 }

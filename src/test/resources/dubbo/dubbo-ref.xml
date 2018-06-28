@@ -10,12 +10,12 @@
 
     <!-- 使用multicast广播注册中心暴露服务地址 -->
     <!--  <dubbo:registry address="multicast://224.5.6.7:1234" /> -->
-    <dubbo:registry protocol="zookeeper" address="127.0.0.1:2181"/>
+    <dubbo:registry id="mts-test-registry" protocol="zookeeper"
+                    address="10.32.64.12:2181,10.32.64.19:2181,10.32.64.161:2181 " check="false"
+                    group="mts-wx-center-test"/>
 
     <!-- 声明需要暴露的服务接口 -->
-    <dubbo:reference id="helloService" interface="com.dubbo.test.service.HelloService"
-                     group="test-prod"
-                     filter="whiteFilter"
+    <dubbo:reference id="testService" interface="com.benmu.mts.wx.center.controller.TestService"
                      version="1.0"/>
 
 </beans>
