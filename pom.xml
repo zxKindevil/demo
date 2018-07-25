@@ -33,9 +33,11 @@
     </dependencyManagement>
 
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.javassist/javassist -->
         <dependency>
-            <groupId>groupId</groupId>
-            <artifactId>AnnotationProcessorTest</artifactId>
+            <groupId>org.javassist</groupId>
+            <artifactId>javassist</artifactId>
+            <version>3.21.0-GA</version>
         </dependency>
         <!--JSR303 BeanValidation begin-->
         <dependency>
