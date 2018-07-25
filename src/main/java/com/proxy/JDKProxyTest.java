@@ -6,6 +6,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
 
 /**
  * @author zhangxin
@@ -13,9 +14,14 @@ import java.lang.reflect.Method;
  */
 public class JDKProxyTest {
     public static void main(String[] args) {
+        HelloService hello = new HelloImpl();
+        hello = (HelloService) Proxy.newProxyInstance(Thread.currentThread().getContextClassLoader(), new Class[]{HelloService.class}, new HelloProxy(hello));
+        hello.say();
+    }
+
+    public static void genClass() {
         String path = "/Users/zhangxin/z/ideaProject/dev/temp/demo/ProxyGTest.class";
-        byte[] classFile = ProxyGenerator.generateProxyClass("$Proxy0",
-                HelloImpl.class.getInterfaces());
+        byte[] classFile = ProxyGenerator.generateProxyClass("$Proxy0", HelloImpl.class.getInterfaces());
         FileOutputStream out = null;
 
         try {
@@ -31,10 +37,6 @@ public class JDKProxyTest {
                 e.printStackTrace();
             }
         }
-
-//        HelloService hello = new HelloImpl();
-//        HelloService proxy = (HelloService) Proxy.newProxyInstance(Thread.currentThread().getContextClassLoader(), new Class[]{HelloService.class}, new HelloProxy(hello));
-//        proxy.say();
     }
 }
 
