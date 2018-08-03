@@ -1,6 +1,9 @@
 package com.dubbo.test;
 
-import com.benmu.mts.wx.center.controller.TestService;
+import com.alibaba.dubbo.remoting.exchange.ResponseCallback;
+import com.alibaba.dubbo.rpc.RpcContext;
+import com.alibaba.dubbo.rpc.RpcResult;
+import com.alibaba.dubbo.rpc.protocol.dubbo.FutureAdapter;
 import com.dubbo.test.service.HelloService;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -15,10 +18,23 @@ public class ConsumerMain {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[]{"classpath:spring-consumer-root.xml"});
         context.start();
 
-        System.out.println("start");
+        HelloService helloService = (HelloService) context.getBean("helloService");
+        helloService.say();
 
-        TestService testService = (TestService) context.getBean("testService");
-        System.out.println(testService.deal("test dubbo sss"));
+        FutureAdapter future = (FutureAdapter) RpcContext.getContext().getFuture();
+        future.getFuture().setCallback(new ResponseCallback() {
+            public void done(Object o) {
+                RpcResult rpcResult = ((RpcResult) o);
+                if (rpcResult.hasException()) {
+                    //log
+                } else {
+                    System.out.println(rpcResult.getValue());
+                }
+            }
 
+            public void caught(Throwable throwable) {
+                //log
+            }
+        });
     }
 }
