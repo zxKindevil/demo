@@ -25,8 +25,9 @@ import com.dubbo.test.benmuasync.api.AsyncService;
 public class AsyncServiceImpl implements AsyncService {
 
     public String sayHello(String name) {
+        String result = "async provider received: " + name;
         System.out.println("async provider received: " + name);
-        return "hello, " + name;
+        return "sync hello, " + name;
     }
 
 }

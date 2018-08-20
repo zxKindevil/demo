@@ -51,6 +51,12 @@
             <artifactId>dubbo</artifactId>
             <version>2.6.0</version>
         </dependency>
+
+        <!--<dependency>-->
+            <!--<groupId>com.benmu.dubbo</groupId>-->
+            <!--<artifactId>dubbo</artifactId>-->
+            <!--<version>1.1.0</version>-->
+        <!--</dependency>-->
         <dependency>
             <groupId>org.apache.zookeeper</groupId>
             <artifactId>zookeeper</artifactId>
