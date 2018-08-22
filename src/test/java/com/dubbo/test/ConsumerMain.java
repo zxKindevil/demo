@@ -46,7 +46,19 @@ public class ConsumerMain {
             }
         });
 
-        System.out.println(future.get());
+        ((FutureAdapter) future).getFuture().setCallback(new ResponseCallback() {
+            public void done(Object o) {
+                RpcResult rpcResult = ((RpcResult) o);
+                if (rpcResult.hasException()) {
+                    //log
+                } else {
+                    System.out.println(rpcResult.getValue());
+                }
+            }
 
+            public void caught(Throwable throwable) {
+                //log
+            }
+        });
     }
 }
