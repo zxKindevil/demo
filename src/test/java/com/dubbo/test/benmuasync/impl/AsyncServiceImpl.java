@@ -17,7 +17,11 @@
 package com.dubbo.test.benmuasync.impl;
 
 
+import com.alibaba.dubbo.rpc.RpcContext;
+import com.benmu.dubbo.async.AsyncContext;
 import com.dubbo.test.benmuasync.api.AsyncService;
+
+import java.util.concurrent.TimeUnit;
 
 /**
  * AsyncServiceImpl
@@ -25,8 +29,19 @@ import com.dubbo.test.benmuasync.api.AsyncService;
 public class AsyncServiceImpl implements AsyncService {
 
     public String sayHello(String name) {
-        String result = "async provider received: " + name;
-        System.out.println("async provider received: " + name);
+        AsyncContext<String> context = RpcContext.getContext().startAsync();
+
+        new Thread(() -> {
+            try {
+                TimeUnit.SECONDS.sleep(1);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            String result = "async provider received: " + name;
+            System.out.println("async provider received: " + name);
+            context.commit(result);
+        }).start();
+
         return "sync hello, " + name;
     }
 

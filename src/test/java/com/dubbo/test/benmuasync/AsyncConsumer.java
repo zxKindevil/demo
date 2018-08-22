@@ -22,6 +22,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
 
 /**
  * CallbackConsumer
@@ -42,14 +43,8 @@ public class AsyncConsumer {
 
         System.out.println("async call ret :" + f.get());
 
-        RpcContext.getContext().asyncCall(new Runnable() {
-            public void run() {
-                asyncService.sayHello("oneway call request1");
-                asyncService.sayHello("oneway call request2");
-            }
-        });
+        TimeUnit.SECONDS.sleep(2);
 
-        System.in.read();
     }
 
 }
