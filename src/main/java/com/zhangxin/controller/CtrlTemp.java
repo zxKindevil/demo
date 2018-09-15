@@ -1,29 +1,29 @@
 package com.zhangxin.controller;
 
-import com.zhangxin.bean.TempBean;
-import com.zhangxin.service.TempService;
 import com.zhangxin.exception.TempException;
-
-import javax.annotation.Resource;
-import javax.servlet.http.HttpSession;
-import javax.validation.Valid;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/temp")
 public class CtrlTemp {
 
-    @Resource
-    TempService tempService;
+    @RequestMapping(value = "/ttt", method = RequestMethod.GET)
+    @ResponseBody
+    public String index() {
+        System.out.println("helloGet");
+        return "temp";
+    }
 
     @RequestMapping(value = "/hello", method = RequestMethod.GET)
+    @ResponseBody
     public String helloGet(Model model) {
-        System.out.println("helloGet");
+        System.out.println("helloGet get");
         return "temp";
     }
 
@@ -39,12 +39,5 @@ public class CtrlTemp {
         return "temp";
     }
 
-    @RequestMapping(value = "/beanvalidation")
-    public String beanvalidation(@Valid TempBean tempBean, BindingResult result) throws Exception {
-        if (result.hasErrors()) {
-            return "error";
-        }
-        tempService.insert(tempBean);
-        return "temp";
-    }
+
 }
