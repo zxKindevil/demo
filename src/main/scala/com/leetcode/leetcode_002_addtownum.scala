@@ -13,11 +13,11 @@ package com.leetcode
   * 原因：342 + 465 = 807
   * https://leetcode-cn.com/problems/add-two-numbers/description/
   */
-class leetcode_002 {
+class leetcode_002_addtownum {
 
 }
 
-object Solution {
+object Solution_002 {
 
   def addTwoNumbers(l1: ListNode, l2: ListNode): ListNode = {
     var list1 = l1
