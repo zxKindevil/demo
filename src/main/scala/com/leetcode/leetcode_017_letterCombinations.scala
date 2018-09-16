@@ -29,7 +29,7 @@ object Solution_017 {
   }
 
   def recur(input: String, deep: Int, cur: String) {
-    if (deep == input.size) {
+    if (deep == input.length) {
       ret = ret.::(cur)
       return
     }
