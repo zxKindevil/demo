@@ -17,7 +17,7 @@ class leetcode_023_mergeKLists {
 
 }
 
-object Solution {
+object Solution_023 {
   def mergeKLists(lists: Array[ListNode]): ListNode = {
     var last: ListNode = null
     for (list <- lists) {

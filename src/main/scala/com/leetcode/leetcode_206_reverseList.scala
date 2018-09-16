@@ -15,7 +15,7 @@ class leetcode_206_reverseList {
 
 }
 
-object Solution {
+object Solution_206 {
   def reverseList(head: ListNode): ListNode = {
     if (head == null) return head
     var last = head
