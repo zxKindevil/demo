@@ -21,7 +21,7 @@ class leetcode_046_permute {
 
 }
 
-object Solution {
+object Solution046 {
   var ret: List[List[Int]] = List()
 
   def permute(nums: Array[Int]): List[List[Int]] = {
