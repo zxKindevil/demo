@@ -43,7 +43,8 @@ object Solution {
   }
 
   def main(args: Array[String]): Unit = {
-    val list = permute(Array())
+    println(Array(1, 2, 3).permutations.next().toList)
+    val list = permute(Array(1,2,3))
     println(list)
   }
 }
