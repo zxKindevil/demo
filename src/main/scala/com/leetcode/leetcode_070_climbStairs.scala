@@ -8,7 +8,7 @@ class leetcode_070_climbStairs {
 
 }
 
-object Solution {
+object Solution_070 {
   def climbStairs(n: Int): Int = {
     val ret = Array[Int](1, 1)
     for (i <- 2 to n) {
