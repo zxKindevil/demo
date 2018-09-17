@@ -8,7 +8,7 @@ class leetcode_022_generateParenthesis {
 
 }
 
-object Solution {
+object Solution_022 {
   var ret: List[String] = null
 
   def generateParenthesis(n: Int): List[String] = {
