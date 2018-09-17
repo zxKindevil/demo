@@ -1,8 +1,8 @@
 package com.leetcode
 
 
-/**
-  * wrong
+/** https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/description/
+  * 二分查找
   */
 class leetcode_034_searchRange {
 
