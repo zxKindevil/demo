@@ -14,17 +14,21 @@ object leetcode_034_searchRange {
     val index: Int = binSearch(nums, target)
     if (index == -1) return Array(-1, -1)
 
-    for (right <- index until nums.length) {
-      if (nums(right) != target) {
+
+    var right = index
+    while (right <= nums.length) {
+      if (right == nums.length || nums(right) != target) {
         ret = ret.+:(right - 1)
+        right = nums.length + 1
       }
+      right += 1
     }
 
     var left = index
-    while (left >= 0) {
-      if (nums(left) != target) {
+    while (left >= -1) {
+      if (left == -1 || nums(left) != target) {
         ret = ret.+:(left + 1)
-        left = -1
+        left = -2
       }
       left = left - 1
     }
@@ -40,7 +44,7 @@ object leetcode_034_searchRange {
       if (nums(mid) > target) {
         right = mid - 1
       }
-      if (nums(mid) < target) {
+      else if (nums(mid) < target) {
         left = mid + 1
       }
       else return mid
@@ -49,7 +53,7 @@ object leetcode_034_searchRange {
   }
 
   def main(args: Array[String]) {
-    println(searchRange(Array(5, 7, 7, 8, 8, 10), 6).toList)
+    println(searchRange(Array(1), 1).toList)
   }
 
 }
