@@ -1,6 +1,9 @@
 package com.leetcode
 
 
+/**
+  * 难,没写对
+  */
 class leetcode_148_sortList {
 
 }
